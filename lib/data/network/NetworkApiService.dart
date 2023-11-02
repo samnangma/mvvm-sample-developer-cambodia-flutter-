@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
-import 'package:deverloper_cambodia/data/app_excaptions.dart';
+import 'package:deverloper_cambodia/data/app_exceptions.dart';
 import 'package:deverloper_cambodia/data/network/BaseApiServices.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
@@ -10,7 +10,7 @@ class NetworkApiService extends BaseApiServices {
     dynamic responseJson;
     try {
       final response =
-          await http.get(Uri.parse(url)).timeout(Duration(seconds: 10));
+          await http.get(Uri.parse(url)).timeout(const Duration(seconds: 10));
       responseJson  = returnResponse(response);
     } on SocketException {
       throw FetchDataException("No Internet Connection");
