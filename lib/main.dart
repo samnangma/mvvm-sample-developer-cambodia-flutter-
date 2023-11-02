@@ -108,7 +108,8 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             const Text(
               'ខ្ញុំស្រឡាញ់កម្ពុជា',
-              style: TextStyle(fontFamily: fontFamily, fontSize: 50),
+              style: TextStyle(fontFamily: noto, fontSize: 50, fontWeight: Regular),
+
             ),
             Text(
               '$_counter',
