@@ -269,7 +269,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   SizedBox(height: 8,),
                   SizedBox(
-                    height: 250,
+                    height: MediaQuery.sizeOf(context).height*.25,
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       itemCount: 5,
@@ -288,7 +288,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "Popular Course",
+                        "Recommend Course",
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 16,
@@ -306,7 +306,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   SizedBox(height: 8,),
                   SizedBox(
-                    height: 250,
+                    height: MediaQuery.sizeOf(context).height*.25,
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       itemCount: 5,
