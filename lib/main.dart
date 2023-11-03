@@ -1,6 +1,7 @@
-import 'package:deverloper_cambodia/constants/fonts.dart';
-import 'package:deverloper_cambodia/views/home/home.dart';
+
 import 'package:flutter/material.dart';
+
+import 'views/home/home.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,12 +17,12 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
 
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
       home: HomeScreen(),
     );
   }
 }
+
 
 
