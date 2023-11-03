@@ -1,8 +1,10 @@
-import 'package:deverloper_cambodia/views/login/login_screen.dart';
+
 import 'package:flutter/material.dart';
 
+import 'views/home/home.dart';
+
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -14,10 +16,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+
         useMaterial3: true,
       ),
-      home: LoginScreen(),
+      home: HomeScreen(),
     );
   }
 }
+
+
+

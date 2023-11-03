@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 
-const background = Color(0xfff8f8f8); //white
-const primary = Color(0xFFDD0F); //yellow
-const primary90 = Color(0xFFDE16); //dark yellow
-const secondary = Color(0x2563EB); //blue
-const Secondary90 = Color(0x1D4ED8); //dark blue
-const primaryWhite = Color(0xFAFAFA); //white
-const blackColor = Color(0x171717);
-const black70 = Color(0x333333);
-const black50 = Color(0x807F7F);
-const grayColor = Color(0xEAEAEA);
-const gray50 = Color(0xEAEAEA);
-const whiteColor = Color(0xFFFFFF);
 
+class AppColor {
+  static const Color primaryColor = Color(0xFFFFDD0F); // yellow
+  static const Color primaryDarkColor = Color(0xFFFFDE16); // dark yellow
+  static const Color secondaryColor = Color(0xFF2563EB); // blue
+  static const Color secondaryDarkColor = Color(0xFF1D4ED8); // dark blue
+  static const Color primaryWhite = Color(0xFFFAFAFA);
+  static const Color blackColor = Color(0xFF171717);
+  static const Color black70 = Color(0xFF333333);
+  static const Color black50 = Color(0xFF807F7F);
+  static const Color grayColor = Color(0xFFEAEAEA);
+  static const Color gray50 = Color(0xFFEAEAEA);
+  static const Color whiteColor = Color(0xFFFFFFFF);
+}
 
