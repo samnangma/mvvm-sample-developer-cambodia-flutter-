@@ -1,8 +1,9 @@
 import 'package:deverloper_cambodia/constants/fonts.dart';
+import 'package:deverloper_cambodia/views/home/home.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page',),
+      home: HomeScreen(),
     );
   }
 }
