@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../constants/colors.dart';
+import '../../../constants/colors.dart';
 
-class LoginForm extends StatelessWidget {
-  const LoginForm({super.key});
+class CompleteInforForm extends StatelessWidget {
+  const CompleteInforForm({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +12,7 @@ class LoginForm extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Text(
-            "Login to your account",
+            "Complete your account",
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
           ),
           const SizedBox(
@@ -27,8 +27,8 @@ class LoginForm extends StatelessWidget {
             ),
             child: TextFormField(
               decoration: const InputDecoration(
-                prefixIcon: Icon(Icons.email_outlined),
-                hintText: "Email",
+                prefixIcon: Icon(Icons.people_outline),
+                hintText: "First name",
                 border: InputBorder.none,
               ),
             ),
@@ -37,37 +37,54 @@ class LoginForm extends StatelessWidget {
           Container(
             height: 50,
             decoration: ShapeDecoration(
-              
               color: AppColor.gray50,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(5)),
             ),
             child: TextFormField(
-              obscureText: true,
               decoration: InputDecoration(
-                prefixIcon: const Icon(Icons.fingerprint),
-                hintText: "Password",
+                prefixIcon: const Icon(Icons.people_outline),
+                hintText: "Last Name",
                 border: InputBorder.none,
-                suffixIcon: IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.remove_red_eye_sharp),
-                ),
+              ),
+            ),
+          ),
+          const SizedBox(height: 15),
+          Container(
+            height: 50,
+            decoration: ShapeDecoration(
+              color: AppColor.gray50,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(5)),
+            ),
+            child: TextFormField(
+              decoration: InputDecoration(
+                prefixIcon: const Icon(Icons.phone),
+                hintText: "Phone Number",
+                border: InputBorder.none,
               ),
             ),
           ),
           const SizedBox(
-            height: 5,
+            height: 15,
           ),
-          Align(
-            alignment: Alignment.centerRight,
-            child: TextButton(
-                onPressed: () {},
-                child: const Text(
-                  "Forget Password?",
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: AppColor.primaryDarkColor),
-                )),
+          Container(
+            height: 50,
+            decoration: ShapeDecoration(
+              color: AppColor.gray50,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(5)),
+            ),
+            child: TextFormField(
+              decoration: InputDecoration(
+                prefixIcon: const Icon(Icons.home_outlined),
+                hintText: "Address",
+                border: InputBorder.none,
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 15,
           ),
           SizedBox(
               width: double.infinity,
@@ -82,7 +99,7 @@ class LoginForm extends StatelessWidget {
                   ),
                 ),
                 child: const Text(
-                  "Log In",
+                  "Submit",
                   style: TextStyle(
                       color: AppColor.blackColor,
                       fontWeight: FontWeight.bold,

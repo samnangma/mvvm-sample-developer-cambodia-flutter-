@@ -14,8 +14,10 @@ dependencies:
     sdk: flutter
   carousel_slider: ^4.0.0
   smooth_page_indicator: ^1.1.0
-
+  animate_do: ^3.1.2
+  flutter_verification_code: ^1.1.7
   http: ^1.1.0
+  intro_screen_onboarding_flutter: ^1.0.0
 
 
 
@@ -36,6 +38,7 @@ flutter:
   assets:
      - assets/logos/
      - assets/logos/google.png
+     - assets/logos/logo1.png
      - assets/images/
 
 
