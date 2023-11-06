@@ -1,7 +1,6 @@
-
+import 'package:developer_cambodia/views/splash_screen/onboardingpage/onboarding_page.dart';
 import 'package:flutter/material.dart';
 
-import 'views/home/home.dart';
 
 void main() {
   runApp(MyApp());
@@ -19,10 +18,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
       ),
-      home: HomeScreen(),
+      home: Onboarding(),
     );
   }
 }
+
+
 
 
 

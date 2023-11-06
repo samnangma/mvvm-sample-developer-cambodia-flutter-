@@ -1,11 +1,11 @@
+import 'package:developer_cambodia/constants/colors.dart';
+import 'package:developer_cambodia/views/sign_up/wiget/register_form.dart';
 import 'package:flutter/material.dart';
-import '../../constants/colors.dart';
-import 'login_form.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+class RegisterPage extends StatelessWidget {
+  const RegisterPage({super.key});
 
-  @override
+ @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return SafeArea(
@@ -30,7 +30,8 @@ class LoginScreen extends StatelessWidget {
                 SizedBox(
                   height: 70,
                 ),
-                const LoginForm(),
+                const RegisterForm(),
+                SizedBox(height: 10,),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Column(
@@ -70,11 +71,11 @@ class LoginScreen extends StatelessWidget {
                       TextButton(
                           onPressed: () {},
                           child: Text.rich(TextSpan(
-                              text: ("Don't have an account?"),
+                              text: ("Already have an account?"),
                               style: TextStyle(color: AppColor.blackColor),
                               children: const [
                                 TextSpan(
-                                    text: (" Sign Up"),
+                                    text: (" Log In"),
                                     style:
                                         TextStyle(color: AppColor.primaryColor))
                               ],),),)
