@@ -5,7 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'colors.dart';
 
 class Size{
-  static TextStyle AppBarTitle = TextStyle(
+  static TextStyle AppBarTitle = const TextStyle(
       fontSize: 25,
       fontWeight: FontWeight.bold
       );
