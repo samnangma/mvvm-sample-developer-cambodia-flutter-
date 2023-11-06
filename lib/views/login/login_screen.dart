@@ -1,7 +1,5 @@
-
-import 'package:developer_cambodia/constants/colors.dart';
 import 'package:flutter/material.dart';
-
+import '../../constants/colors.dart';
 import 'login_form.dart';
 
 class LoginScreen extends StatelessWidget {
