@@ -12,13 +12,13 @@ class LoginForm extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
-            "Login to your account",
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-          ),
-          const SizedBox(
-            height: 15,
-          ),
+          // const Text(
+          //   "Login to your account",
+          //   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+          // ),
+          // const SizedBox(
+          //   height: 15,
+          // ),
           Container(
             height: 50,
             decoration: ShapeDecoration(
@@ -29,7 +29,7 @@ class LoginForm extends StatelessWidget {
             child: TextFormField(
               decoration: const InputDecoration(
                 prefixIcon: Icon(Icons.email_outlined),
-                hintText: "Email",
+                hintText: "អុីម៉ែល",
                 border: InputBorder.none,
               ),
             ),
@@ -46,8 +46,8 @@ class LoginForm extends StatelessWidget {
             child: TextFormField(
               obscureText: true,
               decoration: InputDecoration(
-                prefixIcon: const Icon(Icons.fingerprint),
-                hintText: "Password",
+                prefixIcon: const Icon(Icons.lock_outline),
+                hintText: "លេខសំងាត់",
                 border: InputBorder.none,
                 suffixIcon: IconButton(
                   onPressed: () {},
@@ -64,7 +64,7 @@ class LoginForm extends StatelessWidget {
             child: TextButton(
                 onPressed: () {},
                 child: const Text(
-                  "Forget Password?",
+                  "ភ្លេចលេខសំងាត់ ?",
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: AppColor.primaryDarkColor),
@@ -86,7 +86,7 @@ class LoginForm extends StatelessWidget {
                   ),
                 ),
                 child: const Text(
-                  "Log In",
+                  "ចូលគណនី",
                   style: TextStyle(
                       color: AppColor.blackColor,
                       fontWeight: FontWeight.bold,

@@ -25,11 +25,11 @@ class LoginScreen extends StatelessWidget {
                   height: 10,
                 ),
                 Text(
-                  "Developers Cambodia",
+                  "ចូលគណនីរបស់អ្នក",
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                 ),
                 SizedBox(
-                  height: 70,
+                  height: 50,
                 ),
                 const LoginForm(),
                 Padding(
@@ -37,7 +37,7 @@ class LoginScreen extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      const Text("-or Sign In with -"),
+                      const Text("-ឬ ប្រើប្រាស់ជាមួយ -"),
                       SizedBox(
                         width: double.infinity,
                         child: Row(
@@ -74,13 +74,13 @@ class LoginScreen extends StatelessWidget {
 
                           },
                           child: Text.rich(TextSpan(
-                              text: ("Don't have an account?"),
+                              text: ("មិនទាន់មានគណនីឬ ?"),
                               style: TextStyle(color: AppColor.blackColor),
                               children: const [
                                 TextSpan(
-                                    text: (" Sign Up"),
+                                    text: (" ចុះឈ្មោះ "),
                                     style:
-                                        TextStyle(color: AppColor.primaryColor))
+                                        TextStyle(color: AppColor.primaryDarkColor,fontWeight:FontWeight.w900))
                               ],),),)
                     ],
                   ),

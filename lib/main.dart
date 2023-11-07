@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
+        fontFamily: "NotoSerifKhmer",
         useMaterial3: true,
       ),
       home: SplashScreen(),

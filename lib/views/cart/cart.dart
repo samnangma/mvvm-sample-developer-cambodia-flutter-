@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 
 import '../checkout/checkout.dart';
 import 'widget/CartCourse.dart';
-void main(){
-  runApp( MyApp1());
-}
+// void main(){
+//   runApp( MyApp1());
+// }
 class MyApp1 extends StatelessWidget {
   const MyApp1({super.key});
 
