@@ -1,7 +1,9 @@
-import 'package:developer_cambodia/constants/colors.dart';
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 
+import '../../constants/colors.dart';
+import '../../constants/fonts.dart';
+import '../../constants/size.dart';
 import '../checkout/checkout.dart';
 import 'widget/CartCourse.dart';
 void main(){
@@ -18,8 +20,9 @@ class MyApp1 extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         useMaterial3: true,
+        fontFamily:  noto
       ),
-      home: Checkout(),
+      home:  Cart(),
     );
   }
 }
@@ -41,10 +44,7 @@ class Cart extends StatelessWidget {
                 child: Icon(Icons.arrow_back,size: 41,),
               ),
           ),
-        title: Text("Cart",style: TextStyle(
-          fontWeight: FontWeight.bold,
-          fontSize: 28
-        ),),
+        title: Text("Cart",style:AppSize.AppBarTitle),
         centerTitle: true,
         ),
       body:Padding(
@@ -52,7 +52,7 @@ class Cart extends StatelessWidget {
         //course cart
         child: ListView.builder(
           itemCount:10 ,
-            itemBuilder: (context, index) =>Padding(padding: EdgeInsets.only(bottom: 21),
+            itemBuilder: (context, index) =>Padding(padding:AppSize.ButtomOnly,
             child: Add_Cart(),)),
       ),
     );

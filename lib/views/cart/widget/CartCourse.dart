@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../constants/colors.dart';
+import '../../../constants/size.dart';
 
 class Add_Cart extends StatelessWidget {
   const Add_Cart({
@@ -48,8 +49,8 @@ class Add_Cart extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Learn Blockchain for Beginner',
-                      style: TextStyle(fontSize: 16, color: AppColor.black50),
+                      'រៀន Blockchain គម្រិតដំបូង',
+                      style: AppSize.SubTitle,
                     ),
                     Expanded(
                       child: Row(
@@ -90,7 +91,7 @@ class Add_Cart extends StatelessWidget {
                       child: Row(
                         children: [
                           Text(
-                            '\$1000.0',
+                            '៤០០០០០ ៛',
                             style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
@@ -105,9 +106,9 @@ class Add_Cart extends StatelessWidget {
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(28),
                                 color:
-                                    AppColor.primaryDarkColor.withOpacity(.5)),
+                                    AppColor.primaryDarkColor.withOpacity(.2)),
                             child: Text(
-                              'Best Seller',
+                              'លក់ដាច់បំផុត',
                               style: TextStyle(
                                   fontSize: 16,
                                   fontWeight: FontWeight.bold,
