@@ -1,7 +1,7 @@
 
+import 'package:developer_cambodia/views/course/course_detail.dart';
 import 'package:flutter/material.dart';
 
-import 'views/home/home.dart';
 
 void main() {
   runApp(MyApp());
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
       ),
-      home: HomeScreen(),
+      home: CourseDetail(),
     );
   }
 }
