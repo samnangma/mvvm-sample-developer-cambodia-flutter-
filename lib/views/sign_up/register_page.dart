@@ -1,20 +1,20 @@
+import 'package:developer_cambodia/constants/colors.dart';
+import 'package:developer_cambodia/views/login/login_screen.dart';
+import 'package:developer_cambodia/views/sign_up/wiget/register_form.dart';
 import 'package:flutter/material.dart';
-import '../../constants/colors.dart';
-import '../sign_up/register_page.dart';
-import 'login_form.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({Key? key});
+class RegisterPage extends StatelessWidget {
+  const RegisterPage({Key? key});
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Container(
-          padding: EdgeInsets.all(20),
-          width: size.width, // Set width to full screen width
-          height: size.height, // Set height to full screen height
+      body: Container(
+        padding: EdgeInsets.all(20),
+        width: size.width,
+        height: size.height,
+        child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -23,20 +23,16 @@ class LoginScreen extends StatelessWidget {
                 image: AssetImage("assets/logos/logo.png"),
                 height: size.height * 0.26,
               ),
-              SizedBox(
-                height: 50,
-              ),
-              const LoginForm(),
-              SizedBox(
-                height: 15,
-              ),
+              SizedBox(height: 50),
+              const RegisterForm(),
+              SizedBox(height: 10),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     const Text("-- ឬ ប្រើប្រាស់ជាមួយ --",style: TextStyle(color: AppColor.black50),),
-                    SizedBox(
+                    const SizedBox(
                       height: 15,
                     ),
                     SizedBox(
@@ -66,39 +62,36 @@ class LoginScreen extends StatelessWidget {
                         ],
                       ),
                     ),
-                    SizedBox(
-                      height: 15,
-                    ),
+                    SizedBox(height: 10),
                     TextButton(
                       onPressed: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => RegisterPage(),
+                            builder: (context) => LoginScreen(),
                           ),
                         );
                       },
                       child: Text.rich(
                         TextSpan(
-                          text: ("មិនទាន់មានគណនីឬ ?"),
-
-                          style: TextStyle(color: AppColor.black50,fontSize: 16,),
+                          text: ("មានគណនីរួចហើយ?"),
+                          style: TextStyle(color: AppColor.black50,fontSize: 16),
                           children:  [
                             TextSpan(
-                              text: (" ចុះឈ្មោះ "),
+                              text: (" ចូលគណនី"),
                               style: TextStyle(
                                 fontSize: 16,
-                                color: AppColor.secondaryDarkColor ,
+                                color: AppColor.secondaryDarkColor,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
                           ],
                         ),
                       ),
-                    )
+                    ),
                   ],
                 ),
-              )
+              ),
             ],
           ),
         ),

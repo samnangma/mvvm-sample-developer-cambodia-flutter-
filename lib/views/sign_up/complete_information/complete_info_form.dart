@@ -1,12 +1,16 @@
-import 'package:developer_cambodia/views/forget_password/forget_pasword.dart';
-import 'package:developer_cambodia/views/home/home.dart';
 import 'package:flutter/material.dart';
 
-import '../../constants/colors.dart';
+import '../../../constants/colors.dart';
+import '../../opt_verfiy/opt_verfiy.dart';
 
-class LoginForm extends StatelessWidget {
-  const LoginForm({super.key});
+class CompleteInforForm extends StatefulWidget {
+  const CompleteInforForm({super.key});
 
+  @override
+  State<CompleteInforForm> createState() => _CompleteInforFormState();
+}
+
+class _CompleteInforFormState extends State<CompleteInforForm> {
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -14,7 +18,7 @@ class LoginForm extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Text(
-            "ចូលគណនីរបស់អ្នក",
+            "បំពេញព័ត៏មានរបស់អ្នក",
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
           ),
           const SizedBox(
@@ -29,8 +33,8 @@ class LoginForm extends StatelessWidget {
             ),
             child: TextFormField(
               decoration: const InputDecoration(
-                prefixIcon: Icon(Icons.email_outlined),
-                hintText: "អុីម៉ែល",
+                prefixIcon: Icon(Icons.people_outline),
+                hintText: "នាម",
                 border: InputBorder.none,
               ),
             ),
@@ -39,41 +43,54 @@ class LoginForm extends StatelessWidget {
           Container(
             height: 50,
             decoration: ShapeDecoration(
-              
               color: AppColor.gray50,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(5)),
             ),
             child: TextFormField(
-              obscureText: true,
               decoration: InputDecoration(
-                prefixIcon: const Icon(Icons.lock_outline),
-                hintText: "លេខសំងាត់",
+                prefixIcon: const Icon(Icons.people_outline),
+                hintText: "គោត្តនាម",
                 border: InputBorder.none,
-                suffixIcon: IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.remove_red_eye_sharp),
-                ),
+              ),
+            ),
+          ),
+          const SizedBox(height: 15),
+          Container(
+            height: 50,
+            decoration: ShapeDecoration(
+              color: AppColor.gray50,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(5)),
+            ),
+            child: TextFormField(
+              decoration: InputDecoration(
+                prefixIcon: const Icon(Icons.phone),
+                hintText: "លេខទូរស័ព្ទ",
+                border: InputBorder.none,
               ),
             ),
           ),
           const SizedBox(
-            height: 5,
+            height: 15,
           ),
-          Align(
-            alignment: Alignment.centerRight,
-            child: TextButton(
-                onPressed: () {
-                  Navigator.push(
-                      context, MaterialPageRoute(builder: (context) => ForgetPassword()));
-                },
-                child:  Text(
-                  "ភ្លេចលេខសំងាត់ ?",
-                  style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: AppColor.secondaryDarkColor),
-                )),
+          Container(
+            height: 50,
+            decoration: ShapeDecoration(
+              color: AppColor.gray50,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(5)),
+            ),
+            child: TextFormField(
+              decoration: InputDecoration(
+                prefixIcon: const Icon(Icons.home_outlined),
+                hintText: "អាស័យដ្ឋាន",
+                border: InputBorder.none,
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 15,
           ),
           SizedBox(
               width: double.infinity,
@@ -81,7 +98,7 @@ class LoginForm extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: () {
                   Navigator.push(
-                      context, MaterialPageRoute(builder: (context) => HomeScreen()));
+                      context, MaterialPageRoute(builder: (context) => Verificatoin()));
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppColor.primaryColor,
@@ -91,10 +108,10 @@ class LoginForm extends StatelessWidget {
                   ),
                 ),
                 child: const Text(
-                  "ចូលគណនី",
+                  "Submit",
                   style: TextStyle(
                       color: AppColor.blackColor,
-                      // fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.bold,
                       fontSize: 20),
                 ),
               ))
