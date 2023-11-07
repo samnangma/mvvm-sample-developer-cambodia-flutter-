@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../constants/colors.dart';
+import '../../opt_verfiy/opt_verfiy.dart';
 
 class CompleteInforForm extends StatelessWidget {
   const CompleteInforForm({super.key});
@@ -90,7 +91,10 @@ class CompleteInforForm extends StatelessWidget {
               width: double.infinity,
               height: 56,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => Verificatoin()));
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppColor.primaryColor,
                   shape: RoundedRectangleBorder(

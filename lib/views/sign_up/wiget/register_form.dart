@@ -1,4 +1,5 @@
 import 'package:developer_cambodia/constants/colors.dart';
+import 'package:developer_cambodia/views/sign_up/complete_information/complete_info.dart';
 import 'package:flutter/material.dart';
 
 class RegisterForm extends StatelessWidget {
@@ -94,7 +95,10 @@ class RegisterForm extends StatelessWidget {
               width: double.infinity,
               height: 56,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => CompleteInfo()));
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppColor.primaryColor,
                   shape: RoundedRectangleBorder(

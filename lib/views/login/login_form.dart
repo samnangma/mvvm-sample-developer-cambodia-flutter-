@@ -1,3 +1,4 @@
+import 'package:developer_cambodia/views/home/home.dart';
 import 'package:flutter/material.dart';
 
 import '../../constants/colors.dart';
@@ -73,7 +74,10 @@ class LoginForm extends StatelessWidget {
               width: double.infinity,
               height: 56,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => HomeScreen()));
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppColor.primaryColor,
                   shape: RoundedRectangleBorder(

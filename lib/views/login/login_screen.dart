@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../constants/colors.dart';
+import '../sign_up/register_page.dart';
 import 'login_form.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -68,7 +69,10 @@ class LoginScreen extends StatelessWidget {
                         height: 10,
                       ),
                       TextButton(
-                          onPressed: () {},
+                          onPressed: () {Navigator.push(
+                              context, MaterialPageRoute(builder: (context) => RegisterPage()));
+
+                          },
                           child: Text.rich(TextSpan(
                               text: ("Don't have an account?"),
                               style: TextStyle(color: AppColor.blackColor),

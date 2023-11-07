@@ -53,12 +53,12 @@ class _VerificatoinState extends State<Verificatoin> {
         _isLoading = false;
         _isVerified = true;
 
-        if (_isVerified) {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => const HomeScreen()),
-          );
-        }
+        // if (_isVerified) {
+        //   Navigator.push(
+        //     context,
+        //     MaterialPageRoute(builder: (context) => const HomeScreen()),
+        //   );
+        // }
       });
     });
   }
