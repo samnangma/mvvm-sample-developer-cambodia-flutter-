@@ -3,9 +3,14 @@ import 'package:flutter/material.dart';
 import '../../../constants/colors.dart';
 import '../../opt_verfiy/opt_verfiy.dart';
 
-class CompleteInforForm extends StatelessWidget {
+class CompleteInforForm extends StatefulWidget {
   const CompleteInforForm({super.key});
 
+  @override
+  State<CompleteInforForm> createState() => _CompleteInforFormState();
+}
+
+class _CompleteInforFormState extends State<CompleteInforForm> {
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -13,8 +18,8 @@ class CompleteInforForm extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Text(
-            "Complete your account",
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+            "បំពេញព័ត៏មានរបស់អ្នក",
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
           ),
           const SizedBox(
             height: 15,
@@ -29,7 +34,7 @@ class CompleteInforForm extends StatelessWidget {
             child: TextFormField(
               decoration: const InputDecoration(
                 prefixIcon: Icon(Icons.people_outline),
-                hintText: "First name",
+                hintText: "នាម",
                 border: InputBorder.none,
               ),
             ),
@@ -45,7 +50,7 @@ class CompleteInforForm extends StatelessWidget {
             child: TextFormField(
               decoration: InputDecoration(
                 prefixIcon: const Icon(Icons.people_outline),
-                hintText: "Last Name",
+                hintText: "គោត្តនាម",
                 border: InputBorder.none,
               ),
             ),
@@ -61,7 +66,7 @@ class CompleteInforForm extends StatelessWidget {
             child: TextFormField(
               decoration: InputDecoration(
                 prefixIcon: const Icon(Icons.phone),
-                hintText: "Phone Number",
+                hintText: "លេខទូរស័ព្ទ",
                 border: InputBorder.none,
               ),
             ),
@@ -79,7 +84,7 @@ class CompleteInforForm extends StatelessWidget {
             child: TextFormField(
               decoration: InputDecoration(
                 prefixIcon: const Icon(Icons.home_outlined),
-                hintText: "Address",
+                hintText: "អាស័យដ្ឋាន",
                 border: InputBorder.none,
               ),
             ),

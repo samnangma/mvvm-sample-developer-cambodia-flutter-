@@ -1,3 +1,4 @@
+import 'package:developer_cambodia/views/forget_password/forget_pasword.dart';
 import 'package:developer_cambodia/views/home/home.dart';
 import 'package:flutter/material.dart';
 
@@ -12,13 +13,13 @@ class LoginForm extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // const Text(
-          //   "Login to your account",
-          //   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-          // ),
-          // const SizedBox(
-          //   height: 15,
-          // ),
+          const Text(
+            "ចូលគណនីរបស់អ្នក",
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+          ),
+          const SizedBox(
+            height: 15,
+          ),
           Container(
             height: 50,
             decoration: ShapeDecoration(
@@ -62,12 +63,16 @@ class LoginForm extends StatelessWidget {
           Align(
             alignment: Alignment.centerRight,
             child: TextButton(
-                onPressed: () {},
-                child: const Text(
+                onPressed: () {
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => ForgetPassword()));
+                },
+                child:  Text(
                   "ភ្លេចលេខសំងាត់ ?",
                   style: TextStyle(
+                      fontSize: 16,
                       fontWeight: FontWeight.bold,
-                      color: AppColor.primaryDarkColor),
+                      color: AppColor.secondaryDarkColor),
                 )),
           ),
           SizedBox(
@@ -89,7 +94,7 @@ class LoginForm extends StatelessWidget {
                   "ចូលគណនី",
                   style: TextStyle(
                       color: AppColor.blackColor,
-                      fontWeight: FontWeight.bold,
+                      // fontWeight: FontWeight.bold,
                       fontSize: 20),
                 ),
               ))

@@ -11,18 +11,18 @@ class ForgetPasswordForm extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Text(
-            "Reset Your Password",
+            "កំណត់ពាក្យសម្ងាត់របស់អ្នកឡើងវិញ",
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
           ),
           const SizedBox(
             height: 15,
           ),
           Text(
-            'Enter the email associated with your account \nand we’ll send a link for reset password ',
+            "បញ្ចូលអ៊ីមែលដែលភ្ជាប់ជាមួយគណនីរបស់អ្នកហើយយើងនឹង\nផ្ញើ Link សម្រាប់កំណត់ពាក្យសម្ងាត់ឡើងវិញ",
+            // 'Enter the email associated with your account \nand we’ll send a link for reset password ',
             style: TextStyle(
               color: Color(0xFFBFBFBF),
               fontSize: 14,
-              fontFamily: 'Inter',
               fontWeight: FontWeight.w500,
               height: 1.2,
             ),
@@ -41,7 +41,7 @@ class ForgetPasswordForm extends StatelessWidget {
             child: TextFormField(
               decoration: const InputDecoration(
                 prefixIcon: Icon(Icons.email_outlined),
-                hintText: "Email",
+                hintText: "អុីម៉ែល",
                 border: InputBorder.none,
               ),
             ),
