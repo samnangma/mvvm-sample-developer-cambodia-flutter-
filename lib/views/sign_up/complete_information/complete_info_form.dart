@@ -19,7 +19,7 @@ class _CompleteInforFormState extends State<CompleteInforForm> {
         children: [
           const Text(
             "បំពេញព័ត៏មានរបស់អ្នក",
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18,color: AppColor.secondaryDarkColor),
           ),
           const SizedBox(
             height: 15,
@@ -56,24 +56,24 @@ class _CompleteInforFormState extends State<CompleteInforForm> {
             ),
           ),
           const SizedBox(height: 15),
-          Container(
-            height: 50,
-            decoration: ShapeDecoration(
-              color: AppColor.gray50,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(5)),
-            ),
-            child: TextFormField(
-              decoration: InputDecoration(
-                prefixIcon: const Icon(Icons.phone),
-                hintText: "លេខទូរស័ព្ទ",
-                border: InputBorder.none,
-              ),
-            ),
-          ),
-          const SizedBox(
-            height: 15,
-          ),
+          // Container(
+          //   height: 50,
+          //   decoration: ShapeDecoration(
+          //     color: AppColor.gray50,
+          //     shape: RoundedRectangleBorder(
+          //         borderRadius: BorderRadius.circular(5)),
+          //   ),
+          //   child: TextFormField(
+          //     decoration: InputDecoration(
+          //       prefixIcon: const Icon(Icons.phone),
+          //       hintText: "លេខទូរស័ព្ទ",
+          //       border: InputBorder.none,
+          //     ),
+          //   ),
+          // ),
+          // const SizedBox(
+          //   height: 15,
+          // ),
           Container(
             height: 50,
             decoration: ShapeDecoration(
@@ -108,9 +108,9 @@ class _CompleteInforFormState extends State<CompleteInforForm> {
                   ),
                 ),
                 child: const Text(
-                  "Submit",
+                  "បន្ត",
                   style: TextStyle(
-                      color: AppColor.blackColor,
+                      color: AppColor.secondaryDarkColor,
                       fontWeight: FontWeight.bold,
                       fontSize: 20),
                 ),

@@ -1,6 +1,5 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:developer_cambodia/constants/colors.dart';
-import 'package:developer_cambodia/views/home/home.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:flutter_verification_code/flutter_verification_code.dart';
@@ -138,17 +137,19 @@ class _VerificatoinState extends State<Verificatoin> {
                       )
                     ]),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
                   FadeInDown(
                       duration: Duration(milliseconds: 500),
-                      child: Text(
+                      child: const Text(
                         "Verification",
                         style: TextStyle(
-                            fontSize: 30, fontWeight: FontWeight.bold),
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                            color: AppColor.secondaryDarkColor),
                       )),
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
                   FadeInDown(
@@ -163,7 +164,7 @@ class _VerificatoinState extends State<Verificatoin> {
                           height: 1.5),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
 
@@ -235,39 +236,45 @@ class _VerificatoinState extends State<Verificatoin> {
                   FadeInDown(
                     delay: Duration(milliseconds: 800),
                     duration: Duration(milliseconds: 500),
-                    child: MaterialButton(
-                      elevation: 0,
-                      onPressed: _code.length < 6
-                          ? () => {}
-                          : () {
-                              verify();
-                            },
-                      color: AppColor.primaryDarkColor,
-                      minWidth: MediaQuery.of(context).size.width * 0.9,
-                      height: 50,
-                      child: _isLoading
-                          ? Container(
-                              width: 20,
-                              height: 20,
-                              child: CircularProgressIndicator(
-                                backgroundColor: Colors.white,
-                                strokeWidth: 3,
-                                color: Colors.black,
-                              ),
-                            )
-                          : _isVerified
-                              ? Icon(
-                                  Icons.check_circle,
-                                  color: Colors.white,
-                                  size: 30,
-                                )
-                              : Text(
-                                  "Verify",
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 18),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(
+                            10), // Set the desired radius value
+                      ),
+                      child: MaterialButton(
+                        elevation: 0,
+                        onPressed: _code.length < 6
+                            ? () => {}
+                            : () {
+                                verify();
+                              },
+                        color: AppColor.primaryDarkColor,
+                        minWidth: MediaQuery.of(context).size.width * 0.85,
+                        height: 56,
+                        child: _isLoading
+                            ? Container(
+                                width: 20,
+                                height: 20,
+                                child: CircularProgressIndicator(
+                                  backgroundColor: Colors.white,
+                                  strokeWidth: 3,
+                                  color: Colors.black,
                                 ),
+                              )
+                            : _isVerified
+                                ? Icon(
+                                    Icons.check_circle,
+                                    color: Colors.white,
+                                    size: 30,
+                                  )
+                                : Text(
+                                    "Verify",
+                                    style: TextStyle(
+                                        color: AppColor.secondaryDarkColor,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 18),
+                                  ),
+                      ),
                     ),
                   )
                 ],

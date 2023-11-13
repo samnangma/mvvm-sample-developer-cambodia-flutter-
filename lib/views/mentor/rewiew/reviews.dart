@@ -68,6 +68,6 @@ class Review extends StatelessWidget {
           ],
         ),
       ),
-    );;
+    );
   }
 }
