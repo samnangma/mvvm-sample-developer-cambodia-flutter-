@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 import '../../../constants/colors.dart';
 import '../../../constants/size.dart';
-class CheckoutCourse extends StatelessWidget {
-  const CheckoutCourse({
-    super.key,s
-  });
+
+class OtherCourse extends StatelessWidget {
+  const OtherCourse({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -58,26 +58,9 @@ class CheckoutCourse extends StatelessWidget {
                                 width: 5,
                               ),
                               Text(
-                                'គិត តារា',
+                                'សំ ណាង',
                                 style: AppSize.SubTitleB50 ,
                               )
-                            ],
-                          ),
-                        ),
-                        Expanded(
-                          child: Row(
-                            children: [
-                              Text(
-                                  '4.9',
-                                  style: AppSize.SubTitle.copyWith(color: AppColor.primaryDarkColor)
-                              ),
-                              SizedBox(
-                                width: 5,
-                              ),
-                              Icon(
-                                Icons.star,
-                                color: AppColor.primaryDarkColor,
-                              ),
                             ],
                           ),
                         ),

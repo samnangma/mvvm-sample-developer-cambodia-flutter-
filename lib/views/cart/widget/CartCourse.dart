@@ -55,14 +55,13 @@ class Add_Cart extends StatelessWidget {
                     Expanded(
                       child: Row(
                         children: [
-                          Icon(Icons.person),
+                          Icon(Icons.person,color: AppColor.black50,),
                           SizedBox(
                             width: 5,
                           ),
                           Text(
-                            'Kit Dara',
-                            style: TextStyle(
-                                fontSize: 16, color: AppColor.black50),
+                            'គិត តារា',
+                            style: AppSize.SubTitleB50 ,
                           )
                         ],
                       ),
@@ -72,10 +71,7 @@ class Add_Cart extends StatelessWidget {
                         children: [
                           Text(
                             '4.9',
-                            style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                                color: AppColor.primaryDarkColor),
+                            style: AppSize.SubTitle.copyWith(color: AppColor.primaryDarkColor)
                           ),
                           SizedBox(
                             width: 5,
@@ -92,10 +88,7 @@ class Add_Cart extends StatelessWidget {
                         children: [
                           Text(
                             '៤០០០០០ ៛',
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                            ),
+                            style: AppSize.SubTitle
                           ),
                           SizedBox(
                             width: 5,
@@ -109,10 +102,7 @@ class Add_Cart extends StatelessWidget {
                                     AppColor.primaryDarkColor.withOpacity(.2)),
                             child: Text(
                               'លក់ដាច់បំផុត',
-                              style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                  color: AppColor.primaryDarkColor),
+                              style:AppSize.SubTitle.copyWith(color: AppColor.primaryDarkColor) ,
                             ),
                           ),
                         ],

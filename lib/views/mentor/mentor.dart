@@ -4,30 +4,18 @@ import 'about/about.dart';
 import 'lesson/lesson.dart';
 import 'rewiew/reviews.dart';
 
-void main() => runApp(const TabBarApp());
+import '../../constants/size.dart';
 
-class TabBarApp extends StatelessWidget {
-  const TabBarApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(useMaterial3: true),
-      home: const TabBarExample(),
-    );
-  }
-}
-
-class TabBarExample extends StatefulWidget {
-  const TabBarExample({super.key});
+class Mentor extends StatefulWidget {
+  const Mentor({super.key});
 
   @override
-  State<TabBarExample> createState() => _TabBarExampleState();
+  State<Mentor> createState() => _MentorState();
 }
 
 /// [AnimationController]s can be created with `vsync: this` because of
 /// [TickerProviderStateMixin].
-class _TabBarExampleState extends State<TabBarExample>
+class _MentorState extends State<Mentor>
     with TickerProviderStateMixin {
   late final TabController _tabController;
 
@@ -56,12 +44,9 @@ class _TabBarExampleState extends State<TabBarExample>
             child: Icon(Icons.arrow_back, size: 41),
           ),
         ),
-        title: const Text(
+        title: Text(
           "Mentor Detail",
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 28,
-          ),
+            style: AppSize.AppBarTitle,
         ),
         centerTitle: true,
         bottom: PreferredSize(
@@ -86,7 +71,7 @@ class _TabBarExampleState extends State<TabBarExample>
                     ),
                     RichText(text: TextSpan(
                       children: [
-                        TextSpan(text: 'Kit Dara\n'),
+                        TextSpan(text: 'សំ ណាង\n'),
                         TextSpan(text: 'Blockchain Tutor'),
                       ],style:TextStyle( color: AppColor.black70),
                     )),
@@ -97,18 +82,18 @@ class _TabBarExampleState extends State<TabBarExample>
                           padding: EdgeInsets.all(4),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(50),
-                            color: AppColor.primaryDarkColor.withOpacity(.5),
+                            color: AppColor.primaryDarkColor,
                           ),
-                          child: Icon(Icons.call,size: 30,color: AppColor.primaryDarkColor,),
+                          child: Icon(Icons.call,size: 30,color: AppColor.secondaryDarkColor,),
                         ),
                         SizedBox(width: 10,),
                         Container(
                           padding: EdgeInsets.all(4),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(50),
-                            color: AppColor.primaryDarkColor.withOpacity(.5),
+                            color: AppColor.primaryDarkColor,
                           ),
-                          child: Icon(Icons.messenger,size: 30,color: AppColor.primaryDarkColor,),
+                          child: Icon(Icons.messenger,size: 30,color: AppColor.secondaryDarkColor),
                         ),
                       ],
                     )

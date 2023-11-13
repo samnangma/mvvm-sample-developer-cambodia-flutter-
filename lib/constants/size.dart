@@ -7,7 +7,7 @@ class AppSize{
       fontSize: 25,
       fontWeight: FontWeight.bold
       );
-  static TextStyle SubTitle =TextStyle(
+  static  TextStyle SubTitle =TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.bold
   );
