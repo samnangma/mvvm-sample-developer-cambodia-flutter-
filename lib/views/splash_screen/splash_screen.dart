@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:developer_cambodia/views/login/login_screen.dart';
+import 'package:developer_cambodia/views/splash_screen/onboardingpage/onboarding_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -22,7 +23,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
     Timer(const Duration(seconds: 3),
             ()=> Navigator.push(
-            context, MaterialPageRoute(builder: (context) => LoginScreen())));
+            context, MaterialPageRoute(builder: (context) => Onboarding())));
   }
   @override
   Widget build(BuildContext context) {

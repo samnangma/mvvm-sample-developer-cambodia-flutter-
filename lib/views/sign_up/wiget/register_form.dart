@@ -1,4 +1,5 @@
 import 'package:developer_cambodia/constants/colors.dart';
+import 'package:developer_cambodia/views/sign_up/complete_information/complete_info.dart';
 import 'package:flutter/material.dart';
 
 class RegisterForm extends StatelessWidget {
@@ -11,8 +12,8 @@ class RegisterForm extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Text(
-            "Create your account",
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+            "បង្កើតគណនីរបស់អ្នក",
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
           ),
           const SizedBox(
             height: 15,
@@ -27,7 +28,7 @@ class RegisterForm extends StatelessWidget {
             child: TextFormField(
               decoration: const InputDecoration(
                 prefixIcon: Icon(Icons.email_outlined),
-                hintText: "Email",
+                hintText: "អុីម៉ែល",
                 border: InputBorder.none,
               ),
             ),
@@ -44,8 +45,8 @@ class RegisterForm extends StatelessWidget {
             child: TextFormField(
               obscureText: true,
               decoration: InputDecoration(
-                prefixIcon: const Icon(Icons.fingerprint),
-                hintText: "Password",
+                prefixIcon: const Icon(Icons.lock_outline),
+                hintText: "លេខកូដសម្ងាត់",
                 border: InputBorder.none,
                 suffixIcon: IconButton(
                   onPressed: () {},
@@ -66,8 +67,8 @@ class RegisterForm extends StatelessWidget {
             child: TextFormField(
               obscureText: true,
               decoration: InputDecoration(
-                prefixIcon: const Icon(Icons.fingerprint),
-                hintText: "Confirm Password",
+                prefixIcon: const Icon(Icons.lock_outline),
+                hintText: "បញ្ជាក់លេខកូដសម្ងាត់",
                 border: InputBorder.none,
                 suffixIcon: IconButton(
                   onPressed: () {},
@@ -94,7 +95,10 @@ class RegisterForm extends StatelessWidget {
               width: double.infinity,
               height: 56,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => CompleteInfo()));
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppColor.primaryColor,
                   shape: RoundedRectangleBorder(
@@ -103,10 +107,10 @@ class RegisterForm extends StatelessWidget {
                   ),
                 ),
                 child: const Text(
-                  "Sign Up",
+                  "បង្កើតគណនី",
                   style: TextStyle(
                       color: AppColor.blackColor,
-                      fontWeight: FontWeight.bold,
+                      // fontWeight: FontWeight.bold,
                       fontSize: 20),
                 ),
               ))

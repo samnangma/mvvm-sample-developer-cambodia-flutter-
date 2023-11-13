@@ -1,13 +1,6 @@
 import 'package:developer_cambodia/views/splash_screen/onboardingpage/onboarding_page.dart';
+import 'package:developer_cambodia/views/splash_screen/splash_screen.dart';
 import 'package:flutter/material.dart';
-
-import 'views/cart/cart.dart';
-import 'views/category/category.dart';
-import 'views/forum/forum.dart';
-import 'views/home/home.dart';
-import 'views/notification/notification.dart';
-import 'views/search/search.dart';
-import 'views/view.dart';
 
 
 void main() {
@@ -24,9 +17,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
+        fontFamily: "NotoSerifKhmer",
         useMaterial3: true,
       ),
-      home: HomeScreen(),
+      home: SplashScreen(),
     );
   }
 }

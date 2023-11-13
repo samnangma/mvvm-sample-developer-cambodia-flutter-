@@ -1,3 +1,5 @@
+import 'package:developer_cambodia/views/forget_password/forget_pasword.dart';
+import 'package:developer_cambodia/views/home/home.dart';
 import 'package:flutter/material.dart';
 
 import '../../constants/colors.dart';
@@ -12,8 +14,8 @@ class LoginForm extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Text(
-            "Login to your account",
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+            "ចូលគណនីរបស់អ្នក",
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
           ),
           const SizedBox(
             height: 15,
@@ -28,7 +30,7 @@ class LoginForm extends StatelessWidget {
             child: TextFormField(
               decoration: const InputDecoration(
                 prefixIcon: Icon(Icons.email_outlined),
-                hintText: "Email",
+                hintText: "អុីម៉ែល",
                 border: InputBorder.none,
               ),
             ),
@@ -45,8 +47,8 @@ class LoginForm extends StatelessWidget {
             child: TextFormField(
               obscureText: true,
               decoration: InputDecoration(
-                prefixIcon: const Icon(Icons.fingerprint),
-                hintText: "Password",
+                prefixIcon: const Icon(Icons.lock_outline),
+                hintText: "លេខសំងាត់",
                 border: InputBorder.none,
                 suffixIcon: IconButton(
                   onPressed: () {},
@@ -61,19 +63,26 @@ class LoginForm extends StatelessWidget {
           Align(
             alignment: Alignment.centerRight,
             child: TextButton(
-                onPressed: () {},
-                child: const Text(
-                  "Forget Password?",
+                onPressed: () {
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => ForgetPassword()));
+                },
+                child:  Text(
+                  "ភ្លេចលេខសំងាត់ ?",
                   style: TextStyle(
+                      fontSize: 16,
                       fontWeight: FontWeight.bold,
-                      color: AppColor.primaryDarkColor),
+                      color: AppColor.secondaryDarkColor),
                 )),
           ),
           SizedBox(
               width: double.infinity,
               height: 56,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => HomeScreen()));
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppColor.primaryColor,
                   shape: RoundedRectangleBorder(
@@ -82,10 +91,10 @@ class LoginForm extends StatelessWidget {
                   ),
                 ),
                 child: const Text(
-                  "Log In",
+                  "ចូលគណនី",
                   style: TextStyle(
                       color: AppColor.blackColor,
-                      fontWeight: FontWeight.bold,
+                      // fontWeight: FontWeight.bold,
                       fontSize: 20),
                 ),
               ))
