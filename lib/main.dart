@@ -1,5 +1,16 @@
+import 'package:developer_cambodia/views/course/course_detail.dart';
+import 'package:developer_cambodia/views/home/home.dart';
+import 'package:developer_cambodia/views/my%20course/continue_learning.dart';
+import 'package:developer_cambodia/views/my%20lesson/my_lesson.dart';
+import 'package:developer_cambodia/views/notification/notification_page.dart';
+import 'package:developer_cambodia/views/profile%20account/change_language.dart';
+import 'package:developer_cambodia/views/profile%20account/password_manager.dart';
+import 'package:developer_cambodia/views/profile%20account/profile_account.dart';
+import 'package:developer_cambodia/views/profile%20account/setting.dart';
+import 'package:developer_cambodia/views/profile%20account/udpate_profile.dart';
 import 'package:developer_cambodia/views/splash_screen/onboardingpage/onboarding_page.dart';
 import 'package:developer_cambodia/views/splash_screen/splash_screen.dart';
+import 'package:developer_cambodia/views/root_page.dart';
 import 'package:flutter/material.dart';
 
 
@@ -20,7 +31,7 @@ class MyApp extends StatelessWidget {
         fontFamily: "NotoSerifKhmer",
         useMaterial3: true,
       ),
-      home: SplashScreen(),
+      home: const MyRootPage(),
     );
   }
 }
