@@ -1,10 +1,10 @@
+import 'package:flutter/material.dart';
 import 'package:developer_cambodia/constants/colors.dart';
 import 'package:developer_cambodia/views/home/home.dart';
 import 'package:developer_cambodia/views/login/login_screen.dart';
-import 'package:flutter/material.dart';
 
 class WelcomePage extends StatelessWidget {
-  const WelcomePage({Key? key});
+  const WelcomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -41,15 +41,13 @@ class WelcomePage extends StatelessWidget {
                     left: 0,
                     top: 450,
                     child: Container(
-                      width: 430,
+                      width: 415,
                       height: 500,
-                      decoration: ShapeDecoration(
+                      decoration: BoxDecoration(
                         color: AppColor.black70,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(15),
-                            topRight: Radius.circular(15),
-                          ),
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(20),
+                          topRight: Radius.circular(20),
                         ),
                       ),
                     ),
@@ -76,34 +74,30 @@ class WelcomePage extends StatelessWidget {
                   Positioned(
                     left: 30,
                     top: 650,
-                    child: Container(
-                      width: 370,
-                      height: 76,
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 72, vertical: 22),
-                      clipBehavior: Clip.antiAlias,
-                      decoration: ShapeDecoration(
-                        color: Color(0xFFFFDE16),
-                        shape: RoundedRectangleBorder(
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => LoginScreen()),
+                        );
+                      },
+                      child: Container(
+                        width: 370,
+                        height: 72,
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 72, vertical: 22),
+                        decoration: BoxDecoration(
+                          color: AppColor.primaryDarkColor,
                           borderRadius: BorderRadius.circular(5),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Color(0x3F000000),
+                              blurRadius: 4,
+                              offset: Offset(0, 1),
+                              spreadRadius: 0,
+                            ),
+                          ],
                         ),
-                        shadows: [
-                          BoxShadow(
-                            color: Color(0x3F000000),
-                            blurRadius: 4,
-                            offset: Offset(0, 1),
-                            spreadRadius: 0,
-                          )
-                        ],
-                      ),
-                      child: GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => LoginScreen()),
-                          );
-                        },
                         child: Center(
                           child: Text(
                             'Log In',
@@ -121,41 +115,40 @@ class WelcomePage extends StatelessWidget {
                   Positioned(
                     left: 30,
                     top: 746,
-                    child: Container(
-                      width: 370,
-                      height: 76,
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 72, vertical: 22),
-                      clipBehavior: Clip.antiAlias,
-                      decoration: ShapeDecoration(
-                        color: Color(0xFFF8E98E),
-                        shape: RoundedRectangleBorder(
-                          side: BorderSide(width: 4, color: Color(0xFFF2F200)),
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => HomeScreen()),
+                        );
+                      },
+                      child: Container(
+                        width: 370,
+                        height: 72,
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 72, vertical: 22),
+                        decoration: BoxDecoration(
+                          color: Color(0xFFF8E98E),
                           borderRadius: BorderRadius.circular(5),
+                          border: Border.all(
+                            width: 4,
+                            color: Color(0xFFF2F200),
+                          ),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Color(0x3F000000),
+                              blurRadius: 4,
+                              offset: Offset(0, 1),
+                              spreadRadius: 0,
+                            ),
+                          ],
                         ),
-                        shadows: [
-                          BoxShadow(
-                            color: Color(0x3F000000),
-                            blurRadius: 4,
-                            offset: Offset(0, 1),
-                            spreadRadius: 0,
-                          )
-                        ],
-                      ),
-                      child: GestureDetector(
-                         onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => HomeScreen()),
-                          );
-                        },
                         child: Center(
                           child: Text(
                             'Browse Courses',
                             style: TextStyle(
                               color: Colors.black,
-                              fontSize: 20,
+                              fontSize: 18,
                               fontFamily: 'Inter',
                               fontWeight: FontWeight.w700,
                             ),

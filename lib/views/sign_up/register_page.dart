@@ -31,7 +31,10 @@ class RegisterPage extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    const Text("-- ឬ ប្រើប្រាស់ជាមួយ --",style: TextStyle(color: AppColor.black50),),
+                    const Text(
+                      "-- ឬ ប្រើប្រាស់ជាមួយ --",
+                      style: TextStyle(color: AppColor.black50),
+                    ),
                     const SizedBox(
                       height: 15,
                     ),
@@ -75,8 +78,9 @@ class RegisterPage extends StatelessWidget {
                       child: Text.rich(
                         TextSpan(
                           text: ("មានគណនីរួចហើយ?"),
-                          style: TextStyle(color: AppColor.black50,fontSize: 16),
-                          children:  [
+                          style:
+                              TextStyle(color: AppColor.black50, fontSize: 16),
+                          children: [
                             TextSpan(
                               text: (" ចូលគណនី"),
                               style: TextStyle(

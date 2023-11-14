@@ -1,25 +1,13 @@
+import 'package:developer_cambodia/constants/colors.dart';
 import 'package:flutter/material.dart';
 
-// import '../../model/restaurant_model.dart';
+import '../../../constants/size.dart';
 
 class PopularCourse extends StatelessWidget {
   const PopularCourse({super.key});
 
-  // DataRestaurant? restaurantData;
-
   @override
   Widget build(BuildContext context) {
-    // String? imageUrl;
-    //
-    // if (restaurantData != null &&
-    //     restaurantData!.attributes != null &&
-    //     restaurantData!.attributes!.picture != null &&
-    //     restaurantData!.attributes!.picture!.data != null &&
-    //     restaurantData!.attributes!.picture!.data!.attributes != null) {
-    //   imageUrl = "https://cms.istad.co${restaurantData!.attributes!.picture!.data!.attributes!.url.toString()}";
-    // } else {
-    //   imageUrl = "https://cdn.vectorstock.com/i/preview-1x/65/30/default-image-icon-missing-picture-page-vector-40546530.jpg";
-    // }
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -36,7 +24,20 @@ class PopularCourse extends StatelessWidget {
                 ),
               ),
             ),
-            //sth above the image
+            Positioned(
+              top: 4,
+              right: 4,
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(50),
+                  color: AppColor.primaryDarkColor,
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8,vertical: 5),
+                  child: Text('លក់ដាច់ជាងគេ',style: AppSize.TextDes.copyWith(color: AppColor.primaryWhite),),
+                ),
+              ),
+            )
           ],
         ),
         Padding(
@@ -46,19 +47,31 @@ class PopularCourse extends StatelessWidget {
             children: [
               Text(
                 "Learn Blockchain for beginner",
-                style: const TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold),
-              ),
+                style:AppSize.SubTitle),
               const Text(
                 'Kit Dara',
               ),
+              Row(
+                children: [
+                  Icon(Icons.star,color: AppColor.primaryDarkColor,size: 17,),
+                  Icon(Icons.star,color: AppColor.primaryDarkColor,size: 17,),
+                  Icon(Icons.star,color: AppColor.primaryDarkColor,size: 17,),
+                  Icon(Icons.star,color: AppColor.primaryDarkColor,size: 17,),
+                  Icon(Icons.star,color: AppColor.primaryDarkColor,size: 17,),
+                  SizedBox(width: 5,),
+                  RichText(text:TextSpan(
+                    text:'5.0',style: AppSize.TextDesBlack,
+                    children: [
+                      TextSpan(
+                        text: '(2000)',style: AppSize.TextDes
+                      )
+                    ]
+                  ))
+                ],
+              ),
               Text(
-                "\ delivery free",
-                style: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 12
-                ),
+                "៤០ ម៉ឺនរៀល",
+                style:AppSize.TextDes.copyWith(color: AppColor.secondaryDarkColor)
               )
             ],
           ),

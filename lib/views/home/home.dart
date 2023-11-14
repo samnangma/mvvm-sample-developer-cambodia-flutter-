@@ -1,11 +1,13 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:developer_cambodia/constants/colors.dart';
+import 'package:developer_cambodia/constants/size.dart';
 import 'package:developer_cambodia/views/home/widgets/category_card.dart';
 import 'package:developer_cambodia/views/home/widgets/popular_course.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../constants/fonts.dart';
+import 'widgets/other_course.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -198,15 +200,12 @@ class _HomeScreenState extends State<HomeScreen> {
               padding: const EdgeInsets.all(20.0),
               child: Column(
                 children: [
-                  const Row(
+                 Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
                         "Category",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
-                        ),
+                        style:AppSize.SubTitle.copyWith(color: AppColor.secondaryColor)
                       ),
                       Text(
                         "See all",
@@ -220,7 +219,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   const SizedBox(height: 10,),
                   SizedBox(
-                    height: 80,
+                    height: 86,
                     child: ListView.builder(
                       itemCount: 10,
                       scrollDirection: Axis.horizontal,
@@ -228,7 +227,6 @@ class _HomeScreenState extends State<HomeScreen> {
                         padding: const EdgeInsets.symmetric(horizontal: 10),
                         child: CategoryCard(),
                       ),
-
                     ),
                   ),
 
@@ -244,15 +242,12 @@ class _HomeScreenState extends State<HomeScreen> {
               padding: const EdgeInsets.all(20.0),
               child: Column(
                 children: [
-                  const Row(
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "Popular Course",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
-                        ),
+                        "វគ្គសិក្សាពេញនិយម",
+                        style: AppSize.SubTitle.copyWith(color: AppColor.secondaryColor),
                       ),
                       Text(
                         "See all",
@@ -266,7 +261,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   const SizedBox(height: 10,),
                   SizedBox(
-                    height: 220,
+                    height: 250,
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       itemCount: 5,
@@ -290,15 +285,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 padding: const EdgeInsets.all(20.0),
                 child: Column(
                   children: [
-                    const Row(
+                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "Popular Course",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16,
-                          ),
+                          "ណែនាំវគ្គសិក្សា",
+                          style:AppSize.SubTitle.copyWith(color: AppColor.secondaryColor)
                         ),
                         Text(
                           "See all",
@@ -312,7 +304,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     const SizedBox(height: 10,),
                     SizedBox(
-                        height: 230,
+                        height: 250,
                         child: ListView.builder(
                           scrollDirection: Axis.horizontal,
                           itemCount: 5,
@@ -328,8 +320,270 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               )
           ),
-
-
+          SliverToBoxAdapter(
+              child:  Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "វគ្គសិក្សាដោយឥតគិតថ្លៃ",
+                          style: AppSize.SubTitle.copyWith(color: AppColor.secondaryColor)
+                        ),
+                        Text(
+                          "See all",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                            color: AppColor.primaryDarkColor,
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 10,),
+                    SizedBox(
+                        height: 250,
+                        child: ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: 5,
+                          itemBuilder: (BuildContext context, int index) {
+                            return Padding(
+                                padding: EdgeInsets.only(right: 15),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Stack(
+                                      children: [
+                                        SizedBox(
+                                          width: MediaQuery.of(context).size.width * 0.65,
+                                          height: 150,
+                                          child: ClipRRect(
+                                            borderRadius: BorderRadius.circular(16),
+                                            child: Image.asset(
+                                              "assets/images/13.png",
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
+                                        ),
+                                        Positioned(
+                                          top: 4,
+                                          right: 4,
+                                          child: Container(
+                                            decoration: BoxDecoration(
+                                              borderRadius: BorderRadius.circular(50),
+                                              color: Colors.red,
+                                            ),
+                                            child: Padding(
+                                              padding: const EdgeInsets.symmetric(horizontal: 8,vertical: 5),
+                                              child: Text('ឥតគិតថ្លៃ',style: AppSize.TextDes.copyWith(color: AppColor.primaryWhite),),
+                                            ),
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                    Padding(
+                                      padding:const EdgeInsets.only(top: 10.0, left: 5),
+                                      child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                              "Learn Blockchain for beginner",
+                                              style:AppSize.SubTitle),
+                                          const Text(
+                                            'Kit Dara',
+                                          ),
+                                          Row(
+                                            children: [
+                                              Icon(Icons.star,color: AppColor.primaryDarkColor,size: 17,),
+                                              Icon(Icons.star,color: AppColor.primaryDarkColor,size: 17,),
+                                              Icon(Icons.star,color: AppColor.primaryDarkColor,size: 17,),
+                                              Icon(Icons.star,color: AppColor.primaryDarkColor,size: 17,),
+                                              Icon(Icons.star,color: AppColor.primaryDarkColor,size: 17,),
+                                              SizedBox(width: 5,),
+                                              RichText(text:TextSpan(
+                                                  text:'5.0',style: AppSize.TextDesBlack,
+                                                  children: [
+                                                    TextSpan(
+                                                        text: '(2000)',style: AppSize.TextDes
+                                                    )
+                                                  ]
+                                              ))
+                                            ],
+                                          ),
+                                          Text(
+                                              "ឥតគិតថ្លៃ",
+                                              style:AppSize.TextDes.copyWith(color: AppColor.secondaryDarkColor)
+                                          )
+                                        ],
+                                      ),
+                                    )
+                                  ],
+                                )
+                            );
+                          },
+                        )
+                    )
+                  ],
+                ),
+              )
+          ),
+          SliverToBoxAdapter(
+              child:  Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                            "វគ្គសិក្សាដែលបញ្ចុះតម្លៃ",
+                            style: AppSize.SubTitle.copyWith(color: AppColor.secondaryColor)
+                        ),
+                        Text(
+                          "See all",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                            color: AppColor.primaryDarkColor,
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 10,),
+                    SizedBox(
+                        height: 250,
+                        child: ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: 5,
+                          itemBuilder: (BuildContext context, int index) {
+                            return Padding(
+                                padding: EdgeInsets.only(right: 15),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Stack(
+                                      children: [
+                                        SizedBox(
+                                          width: MediaQuery.of(context).size.width * 0.65,
+                                          height: 150,
+                                          child: ClipRRect(
+                                            borderRadius: BorderRadius.circular(16),
+                                            child: Image.asset(
+                                              "assets/images/13.png",
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
+                                        ),
+                                        Positioned(
+                                          top: 4,
+                                          right: 4,
+                                          child: Container(
+                                            decoration: BoxDecoration(
+                                              borderRadius: BorderRadius.circular(50),
+                                              color: Colors.red,
+                                            ),
+                                            child: Padding(
+                                              padding: const EdgeInsets.symmetric(horizontal: 8,vertical: 5),
+                                              child: Text('បញ្ចុះតម្លៃ ៥០%',style: AppSize.TextDes.copyWith(color: AppColor.primaryWhite),),
+                                            ),
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                    Padding(
+                                      padding:const EdgeInsets.only(top: 10.0, left: 5),
+                                      child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                              "Learn Blockchain for beginner",
+                                              style:AppSize.SubTitle),
+                                          const Text(
+                                            'Kit Dara',
+                                          ),
+                                          Row(
+                                            children: [
+                                              Icon(Icons.star,color: AppColor.primaryDarkColor,size: 17,),
+                                              Icon(Icons.star,color: AppColor.primaryDarkColor,size: 17,),
+                                              Icon(Icons.star,color: AppColor.primaryDarkColor,size: 17,),
+                                              Icon(Icons.star,color: AppColor.primaryDarkColor,size: 17,),
+                                              Icon(Icons.star,color: AppColor.primaryDarkColor,size: 17,),
+                                              SizedBox(width: 5,),
+                                              RichText(text:TextSpan(
+                                                  text:'5.0',style: AppSize.TextDesBlack,
+                                                  children: [
+                                                    TextSpan(
+                                                        text: '(2000)',style: AppSize.TextDes
+                                                    )
+                                                  ]
+                                              ))
+                                            ],
+                                          ),
+                                          Row(
+                                            children: [
+                                              Text(
+                                                  "២០ ម៉ឺនរៀល",
+                                                  style:AppSize.TextDes.copyWith(color: AppColor.secondaryDarkColor)
+                                              ),
+                                              SizedBox(width: 10,),
+                                              Text(
+                                                  "៤០ ម៉ឺនរៀល",
+                                                  style:AppSize.TextDes.copyWith(color: Colors.red,
+                                                    decoration: TextDecoration.lineThrough,
+                                                    decorationColor: Colors.red
+                                                  ),
+                                              )
+                                            ],
+                                          )
+                                        ],
+                                      ),
+                                    )
+                                  ],
+                                )
+                            );
+                          },
+                        )
+                    )
+                  ],
+                ),
+              )
+          ),
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                          "វគ្គសិក្សាផ្សេងទៀត",
+                          style: AppSize.SubTitle.copyWith(color: AppColor.secondaryColor)
+                      ),
+                      Text(
+                        "See all",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                          color: AppColor.primaryDarkColor,
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 10,),
+                  OtherCourse(),
+                  const SizedBox(height: 10,),
+                  OtherCourse(),
+                  const SizedBox(height: 10,),
+                  OtherCourse(),
+                  const SizedBox(height: 10,),
+                  OtherCourse(),
+                ],
+              ),
+            ),
+          )
         ],
       )
     );

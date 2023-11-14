@@ -2,30 +2,9 @@
 import 'package:flutter/material.dart';
 
 import '../../constants/colors.dart';
-import '../../constants/fonts.dart';
 import '../../constants/size.dart';
-import '../checkout/checkout.dart';
 import 'widget/CartCourse.dart';
-// void main(){
-//   runApp( MyApp1());
-// }
-class MyApp1 extends StatelessWidget {
-  const MyApp1({super.key});
 
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        useMaterial3: true,
-        fontFamily:  noto
-      ),
-      home:  Cart(),
-    );
-  }
-}
 class Cart extends StatelessWidget {
   const Cart({super.key});
 
