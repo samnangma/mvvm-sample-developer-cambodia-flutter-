@@ -1,11 +1,23 @@
+
+
 import 'package:flutter/material.dart';
 
 import '../../constants/colors.dart';
 import '../../constants/size.dart';
 import 'widget/chipTag.dart';
+import 'widget/forumcart.dart';
+
 
 class Forum extends StatelessWidget {
-  const Forum({super.key});
+  void _openBottomSheet(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      builder: (BuildContext context) {
+        return CustomBottomSheet();
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -42,8 +54,8 @@ class Forum extends StatelessWidget {
         ),),
       ),
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
+          child: SingleChildScrollView(
+            child: Column(
               children: [
                 SizedBox(height: 8,),
                 Row(
@@ -57,90 +69,163 @@ class Forum extends StatelessWidget {
                   ],
                 ),
                 SizedBox(height: 21,),
-                Container(
-                  child:Column(
-                    children: [
-                      Row(
-                        children: [
-                          Container(
-                            width: 45,
-                            height: 45,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(50),
-                              color: AppColor.whiteColor,
-                            ),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(50),
-                              child: Image.asset(
-                                'assets/images/bros_srat.jpg',
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                          ),
-                          Column(
-                            children: [
-                              Row(
-                                children: [
-                                  SizedBox(width: 5,),
-                                  Text('Jonh Deo',style: AppSize.SubTitle,),
-                                  SizedBox(width: 5,),
-                                  Container(
-                                    width: 18,
-                                    height: 14,
-                                    color: AppColor.primaryDarkColor,
-                                    child: Center(
-                                      child: Icon(Icons.dark_mode,size: 12,),
-                                    ),
-                                  )
-                                ],
-                              ),
-                              Text('50 នាទីមុន') 
-                            ],
-                          ),
-                          Spacer(),
-                          Row(
-                            children: [
-                              Text('10+'),
-                              Icon(Icons.messenger),
-                              SizedBox(width: 5,)
-                            ],
-                          )
-                        ],
-                      ),
-                      SizedBox(height: 10,),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 50),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text('តើភាសាអ្វីដែលល្អបំផុតសម្រាប់អ្នក?',style:AppSize.SubTitle,),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Row(
-                                  children: [
-                                    Text('10'),
-                                    Icon(Icons.keyboard_arrow_up,size: 30,color: AppColor.primaryDarkColor,)
-                                  ],
-                                ),
-                                Row(
-                                  children: [
-                                    Text('100'),
-                                    Icon(Icons.keyboard_arrow_down,size: 30,)
-                                  ],
-                                )
-                              ],
-                            )
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
-                )
+                ForumCard(),
+                SizedBox(height: 21,),
+                ForumCard(),
+                SizedBox(height: 21,),
+                ForumCard(),
+                SizedBox(height: 21,),
+                ForumCard(),
+                SizedBox(height: 21,),
+                ForumCard(),
+                SizedBox(height: 21,),
+                ForumCard(),
+                SizedBox(height: 21,),
+                ForumCard(),
               ],
+            ),
+          )
+      ),
+      floatingActionButton: IconButton(
+        onPressed: (){
+          _openBottomSheet(context);
+        },
+        icon: Container(
+          width: 50,
+          height: 50,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(50),
+            color: AppColor.primaryDarkColor
           ),
-        )
+          child: Center(
+            child: Icon(Icons.add,color: AppColor.primaryWhite,),
+          ),
+        ),
       ),
     );
   }
 }
+class CustomBottomSheet extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: MediaQuery.of(context).size.height * 0.85,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
+        color: Colors.white,
+      ),
+      child:Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Row(
+              children: [
+                Text('Create Post'),
+                Spacer(),
+                IconButton(onPressed: (){
+                  Navigator.pop(context);
+                }, icon:Icon(Icons.close))
+              ],
+            ),
+          ),
+          SizedBox(height: 10,),
+          Padding(padding:EdgeInsets.only(left: 20),
+          child: Text('ចំណងជើង'),),
+          SizedBox(height: 10,),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Container(
+              height: 45,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(14),
+                color: AppColor.black50.withOpacity(.2)
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(5.0),
+                child: TextField(
+                  decoration: InputDecoration(border: InputBorder.none),
+                ),
+              ),
+            ),
+          ),
+          SizedBox(height: 10,),
+          Padding(padding:EdgeInsets.only(left: 20),
+            child: Text('មាតិកា'),),
+          SizedBox(height: 10,),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Container(
+              height: 221,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(14),
+                  color: AppColor.black50.withOpacity(.2)
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(5.0),
+                child: TextField(
+                  decoration: InputDecoration(border: InputBorder.none),
+                ),
+              ),
+            ),
+          ),
+          SizedBox(height: 10,),
+          Padding(padding:EdgeInsets.only(left: 20),
+            child: Text('Tags'),),
+          SizedBox(height: 10,),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Container(
+              height: 45,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(14),
+                  color: AppColor.black50.withOpacity(.2)
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(5.0),
+                child: Row(
+                   children: [
+                     Chip(
+                       onDeleted: (){},
+                       label: Text('Programe'),
+                       shape: StadiumBorder(),
+                       backgroundColor: AppColor.whiteColor,
+                       side: BorderSide.none,
+                       labelStyle: TextStyle(
+                         color: AppColor.black70,
+                       ),
+                     ),
+                     SizedBox(width: 10,),
+                     Chip(
+                       label: Text('Java'),
+                       shape: StadiumBorder(),
+                       onDeleted: (){},
+                       backgroundColor: AppColor.whiteColor,
+                       side: BorderSide.none,
+                       labelStyle: TextStyle(
+                         color: AppColor.black70,
+                       ),
+                     ),
+                     SizedBox(width: 10,),
+                     Chip(
+                       label: Text('C#'),
+                       shape: StadiumBorder(),
+                       onDeleted: (){},
+                       backgroundColor:AppColor.primaryWhite,
+                       side: BorderSide.none,
+                       labelStyle: TextStyle(
+                         color: AppColor.black70,
+                       ),
+                     ),
+                   ],
+                  ),
+                )
+              ),
+            ),
+        ],
+      )
+    );
+  }
+}
+
+

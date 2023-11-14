@@ -12,7 +12,9 @@ class Noftification extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading:Icon(Icons.arrow_back,size: 41,),
+        leading:IconButton(icon: Icon(Icons.arrow_back,size: 41,),onPressed: (){
+          Navigator.pop(context);
+        },),
         title: Text("សេចក្តីជូនដំណឹង",style:AppSize.AppBarTitle),
         centerTitle: true,
         actions: [
