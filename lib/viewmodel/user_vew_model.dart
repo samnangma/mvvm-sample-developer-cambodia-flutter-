@@ -1,7 +1,5 @@
 import 'package:developer_cambodia/Utils/dialogs.dart';
-import 'package:developer_cambodia/views/sign_up/complete_information/complete_info.dart';
 import 'package:flutter/material.dart';
-
 import '../Utils/validations.dart';
 import '../views/home/home.dart';
 import '../views/opt_verfiy/opt_verfiy.dart';
