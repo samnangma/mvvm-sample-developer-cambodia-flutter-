@@ -41,18 +41,18 @@ class WelcomePage extends StatelessWidget {
                     left: 0,
                     top: 450,
                     child: Container(
-                      width: 415,
+                      width: 435,
                       height: 500,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: AppColor.black70,
                         borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(20),
-                          topRight: Radius.circular(20),
+                          topLeft: Radius.circular(25),
+                          topRight: Radius.circular(25),
                         ),
                       ),
                     ),
                   ),
-                  Positioned(
+                  const Positioned(
                     left: 30,
                     top: 480,
                     child: SizedBox(

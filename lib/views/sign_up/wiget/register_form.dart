@@ -2,6 +2,7 @@ import 'package:developer_cambodia/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../../Utils/utils.dart';
 import '../../../Utils/validations.dart';
 import '../../../viewmodel/user_vew_model.dart';
 
@@ -13,9 +14,16 @@ class RegisterForm extends StatefulWidget {
 }
 
 class _RegisterFormState extends State<RegisterForm> {
+  ValueNotifier<bool> _obscurePassword = ValueNotifier<bool>(true);
+  ValueNotifier<bool> _obscureConfirmPassword = ValueNotifier<bool>(true);
+
   late TextEditingController emailController;
   late TextEditingController passwordController;
   late TextEditingController confirmPasswordController;
+
+  FocusNode emailFocusNode = FocusNode();
+  FocusNode passwordFocusNode = FocusNode();
+  FocusNode confirmPasswordFocusNode = FocusNode();
 
   final _formKey = GlobalKey<FormState>();
   String? emailError;
@@ -36,6 +44,13 @@ class _RegisterFormState extends State<RegisterForm> {
     emailController.dispose();
     passwordController.dispose();
     confirmPasswordController.dispose();
+
+    _obscureConfirmPassword.dispose();
+    _obscurePassword.dispose();
+
+    emailFocusNode.dispose();
+    passwordFocusNode.dispose();
+    confirmPasswordFocusNode.dispose();
   }
 
   static const enabledBorder = UnderlineInputBorder(
@@ -51,15 +66,15 @@ class _RegisterFormState extends State<RegisterForm> {
       borderSide: BorderSide(width: 1, color: Colors.red));
 
   void validateForm() {
-  setState(() {
-    final email = emailController.text.trim();
-    final password = passwordController.text.trim();
-    final confirmPassword = confirmPasswordController.text.trim();
-    emailError = validateEmail(email);
-    passwordError = validatePassword(password);
-    confirmPasswordError = validateConfirmPassword(password, confirmPassword);
-  });
-}
+    setState(() {
+      final email = emailController.text.trim();
+      final password = passwordController.text.trim();
+      final confirmPassword = confirmPasswordController.text.trim();
+      emailError = validateEmail(email);
+      passwordError = validatePassword(password);
+      confirmPasswordError = validateConfirmPassword(password, confirmPassword);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -87,6 +102,7 @@ class _RegisterFormState extends State<RegisterForm> {
             ),
             child: TextFormField(
               controller: emailController,
+              focusNode: emailFocusNode,
               decoration: const InputDecoration(
                 enabledBorder: enabledBorder,
                 focusedBorder: focusedBorder,
@@ -95,6 +111,9 @@ class _RegisterFormState extends State<RegisterForm> {
                 hintText: "អុីម៉ែល",
                 border: InputBorder.none,
               ),
+              onFieldSubmitted: (value) {
+              FocusScope.of(context).requestFocus(passwordFocusNode);
+            },
             ),
           ),
           if (emailError != null)
@@ -113,21 +132,37 @@ class _RegisterFormState extends State<RegisterForm> {
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(5)),
             ),
-            child: TextFormField(
-              controller: passwordController,
-              // obscureText: true,
-              decoration: InputDecoration(
-                enabledBorder: enabledBorder,
-                focusedBorder: focusedBorder,
-                errorBorder: errorBorder,
-                prefixIcon: const Icon(Icons.lock_outline),
-                hintText: "លេខកូដសម្ងាត់",
-                border: InputBorder.none,
-                suffixIcon: IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.remove_red_eye_sharp),
-                ),
-              ),
+            child: ValueListenableBuilder<bool>(
+              valueListenable: _obscurePassword,
+              builder: (context, value, child) {
+                return TextFormField(
+                  controller: passwordController,
+                  focusNode: passwordFocusNode,
+                  obscureText: _obscurePassword.value,
+                  decoration: InputDecoration(
+                    enabledBorder: enabledBorder,
+                    errorMaxLines: 3,
+                    focusedBorder: focusedBorder,
+                    errorBorder: errorBorder,
+                    prefixIcon: const Icon(Icons.lock_outline),
+                    hintText: "លេខកូដសម្ងាត់",
+                    border: InputBorder.none,
+                    suffixIcon: InkWell(
+                      onTap: () {
+                        _obscurePassword.value = !_obscurePassword.value;
+                      },
+                      child: Icon(
+                        _obscurePassword.value
+                            ? Icons.visibility_off_outlined
+                            : Icons.visibility,
+                      ),
+                    ),
+                  ),
+                  onFieldSubmitted: (value) {
+                  FocusScope.of(context).requestFocus(confirmPasswordFocusNode);
+                },
+                );
+              },
             ),
           ),
           if (passwordError != null)
@@ -146,21 +181,37 @@ class _RegisterFormState extends State<RegisterForm> {
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(5)),
             ),
-            child: TextFormField(
-              controller: confirmPasswordController,
-              // obscureText: true,
-              decoration: InputDecoration(
-                enabledBorder: enabledBorder,
-                focusedBorder: focusedBorder,
-                errorBorder: errorBorder,
-                prefixIcon: const Icon(Icons.lock_outline),
-                hintText: "បញ្ជាក់លេខកូដសម្ងាត់",
-                border: InputBorder.none,
-                suffixIcon: IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.remove_red_eye_sharp),
-                ),
-              ),
+            child: ValueListenableBuilder<bool>(
+              valueListenable: _obscureConfirmPassword,
+              builder: (context, value, child) {
+                return TextFormField(
+                  controller: confirmPasswordController,
+                  obscureText: _obscureConfirmPassword.value,
+                  focusNode: confirmPasswordFocusNode,
+                  decoration: InputDecoration(
+                    enabledBorder: enabledBorder,
+                    focusedBorder: focusedBorder,
+                    errorBorder: errorBorder,
+                    prefixIcon: const Icon(Icons.lock_outline),
+                    hintText: "បញ្ជាក់លេខកូដសម្ងាត់",
+                    border: InputBorder.none,
+                    suffixIcon: InkWell(
+                      onTap: () {
+                        _obscureConfirmPassword.value =
+                            !_obscureConfirmPassword.value;
+                      },
+                      child: Icon(
+                        _obscureConfirmPassword.value
+                            ? Icons.visibility_off_outlined
+                            : Icons.visibility,
+                      ),
+                    ),
+                  ),
+                   onFieldSubmitted: (value) {
+                  confirmPasswordFocusNode.unfocus();
+                },
+                );
+              },
             ),
           ),
           if (confirmPasswordError != null)
@@ -193,7 +244,7 @@ class _RegisterFormState extends State<RegisterForm> {
                   validateForm();
                   if (_formKey.currentState!.validate() &&
                       emailError == null &&
-                      passwordError == null && 
+                      passwordError == null &&
                       confirmPasswordError == null) {
                     final email = emailController.text.trim();
                     final password = passwordController.text.trim();

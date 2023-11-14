@@ -1,7 +1,5 @@
 import 'package:developer_cambodia/views/splash_screen/onboardingpage/onboarding_page.dart';
 import 'package:flutter/material.dart';
-import 'package:developer_cambodia/views/home/home.dart';
-import 'package:developer_cambodia/views/login/login_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
