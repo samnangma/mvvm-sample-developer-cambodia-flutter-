@@ -7,13 +7,27 @@ import 'widget/PopularCourse.dart';
 
 class Search extends StatelessWidget {
   const Search({super.key});
+  void _openBottomSheet(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      builder: (BuildContext context) {
+        return CustomBottomSheet();
+      },
+    );
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(
-          Icons.arrow_back,
-          size: 30,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Icon(
+            Icons.arrow_back,
+            size: 30,
+          ),
         ),
         title: Text(
           "ស្វែងរក",
@@ -82,7 +96,7 @@ class Search extends StatelessWidget {
                     ),
                     Expanded(
                       child: GestureDetector(
-                        onTap: ()=> _showBottomSheet(context),
+                        onTap: ()=> _openBottomSheet(context),
                         child: Container(
                           height: 45,
                           decoration: BoxDecoration(
@@ -114,7 +128,7 @@ class Search extends StatelessWidget {
                     children: [
                       SizedBox(height: 21,),
                       Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 21),
+                        padding: const EdgeInsets.symmetric(horizontal: 10),
                         child: Row(
                           children: [
                             ChipTag(),
@@ -127,7 +141,7 @@ class Search extends StatelessWidget {
                       ),
                       SizedBox(height: 8,),
                       Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 21),
+                        padding: const EdgeInsets.symmetric(horizontal: 10),
                         child: Row(
                           children: [
                             ChipTag(),
@@ -165,125 +179,134 @@ class Search extends StatelessWidget {
       ),
     );
   }
-  void _showBottomSheet(BuildContext context) {
-    showModalBottomSheet(
-      context: context,
-      builder: (BuildContext context) {
-        return SingleChildScrollView(
-          child: Container(
-            height: MediaQuery.of(context).size.height * 0.9, // Set the height to 90% of the screen height
-            width: MediaQuery.of(context).size.width,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10.0), // Set the borderRadius to 14
-            ),
-            child: Padding(
-              padding: EdgeInsets.all(16.0),
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      SizedBox(width: 120,),
-                      Text(
-                        'ស្វែងរក Filter',
-                        style: AppSize.TitleCourse,
-                      ),
-                      Spacer(),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.pop(context);
-                        },
-                        child: Icon(Icons.close),
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 21,),
-                  Align(
-                    alignment: Alignment.bottomLeft,
-                    child: Padding(padding: EdgeInsets.only(left: 21),
-                      child: Text('ប្រភេទ',style: AppSize.SubTitle,),),
-                  ),
-              SizedBox(height: 8,),
-                Row(
-                  children: [
-                    ChipTag(),
-                    SizedBox(width: 14,),
-                    ChipTag(),
-                    SizedBox(width: 14,),
-                    ChipTag(),
-                  ],
+}
+class CustomBottomSheet extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: MediaQuery
+          .of(context)
+          .size
+          .height * 0.9, // Set the height to 90% of the screen height
+      width: MediaQuery
+          .of(context)
+          .size
+          .width,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10.0), // Set the borderRadius to 14
+      ),
+      child: Padding(
+        padding: EdgeInsets.all(10.0),
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                SizedBox(width: 120,),
+                Text(
+                  'ស្វែងរក Filter',
+                  style: AppSize.TitleCourse,
                 ),
-                  SizedBox(height: 21,),
-                  Align(
-                    alignment: Alignment.bottomLeft,
-                    child: Padding(padding: EdgeInsets.only(left: 21),
-                      child: Text('រយៈពេល',style: AppSize.SubTitle,),),
-                  ),
-                  SizedBox(height: 8,),
-                  Row(
-                    children: [
-                      ChipTag(),
-                      SizedBox(width: 14,),
-                      ChipTag(),
-                      SizedBox(width: 14,),
-                      ChipTag(),
-                    ],
-                  ),
-                  SizedBox(height: 21,),
-                  Align(
-                    alignment: Alignment.bottomLeft,
-                    child: Padding(padding: EdgeInsets.only(left: 21),
-                      child: Text('តម្លៃ',style: AppSize.SubTitle,),),
-                  ),
-                  SizedBox(height: 8,),
-                  Row(
-                    children: [
-                      ChipTag(),
-                      SizedBox(width: 14,),
-                      ChipTag(),
-                      SizedBox(width: 14,),
-                      ChipTag(),
-                    ],
-                  ),
-                  SizedBox(height: 21,),
-                  GestureDetector(
-                    child: Container(
-                      width: MediaQuery.sizeOf(context).width*.9,
-                      height: 56,
-                      decoration: BoxDecoration(
-                        color: AppColor.primaryDarkColor,
-                        borderRadius: BorderRadius.circular(5)
-                      ),
-                      child: Center(
-                        child: Text('រើសយក Filter',style: AppSize.SubTitle,)
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 21,),
-                  GestureDetector(
-                    onTap: (){
-                      Navigator.pop(context);
-                    },
-                    child: Container(
-                      width: MediaQuery.sizeOf(context).width*.9,
-                      height: 56,
-                      decoration: BoxDecoration(
-                        border: Border.all(color: AppColor.primaryDarkColor,width: 2),
-                          color: AppColor.whiteColor,
-                          borderRadius: BorderRadius.circular(5)
-                      ),
-                      child: Center(
-                          child: Text('Cancel',style: AppSize.SubTitle,)
-                      ),
-                    ),
-                  ),
-                ],
+                Spacer(),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: Icon(Icons.close),
+                ),
+              ],
+            ),
+            SizedBox(height: 21,),
+            Align(
+              alignment: Alignment.bottomLeft,
+              child: Padding(padding: EdgeInsets.only(left: 21),
+                child: Text('ប្រភេទ', style: AppSize.SubTitle,),),
+            ),
+            SizedBox(height: 8,),
+            Row(
+              children: [
+                ChipTag(),
+                SizedBox(width: 14,),
+                ChipTag(),
+                SizedBox(width: 14,),
+                ChipTag(),
+              ],
+            ),
+            SizedBox(height: 21,),
+            Align(
+              alignment: Alignment.bottomLeft,
+              child: Padding(padding: EdgeInsets.only(left: 21),
+                child: Text('រយៈពេល', style: AppSize.SubTitle,),),
+            ),
+            SizedBox(height: 8,),
+            Row(
+              children: [
+                ChipTag(),
+                SizedBox(width: 14,),
+                ChipTag(),
+                SizedBox(width: 14,),
+                ChipTag(),
+              ],
+            ),
+            SizedBox(height: 21,),
+            Align(
+              alignment: Alignment.bottomLeft,
+              child: Padding(padding: EdgeInsets.only(left: 21),
+                child: Text('តម្លៃ', style: AppSize.SubTitle,),),
+            ),
+            SizedBox(height: 8,),
+            Row(
+              children: [
+                ChipTag(),
+                SizedBox(width: 14,),
+                ChipTag(),
+                SizedBox(width: 14,),
+                ChipTag(),
+              ],
+            ),
+            SizedBox(height: 21,),
+            GestureDetector(
+              child: Container(
+                width: MediaQuery
+                    .sizeOf(context)
+                    .width * .9,
+                height: 56,
+                decoration: BoxDecoration(
+                    color: AppColor.primaryDarkColor,
+                    borderRadius: BorderRadius.circular(5)
+                ),
+                child: Center(
+                    child: Text('រើសយក Filter', style: AppSize.SubTitle,)
+                ),
               ),
             ),
-          ),
-        );
-      },
+            SizedBox(height: 21,),
+            GestureDetector(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child: Container(
+                width: MediaQuery
+                    .sizeOf(context)
+                    .width * .9,
+                height: 56,
+                decoration: BoxDecoration(
+                    border: Border.all(
+                        color: AppColor.primaryDarkColor, width: 2),
+                    color: AppColor.whiteColor,
+                    borderRadius: BorderRadius.circular(5)
+                ),
+                child: Center(
+                    child: Text('Cancel', style: AppSize.SubTitle,)
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
+
+
