@@ -42,17 +42,11 @@ class _LoginFormState extends State<LoginForm> {
     _obscurePassword.dispose();
   }
 
-  static const enabledBorder = UnderlineInputBorder(
-      borderRadius: BorderRadius.all(Radius.circular(10)),
-      borderSide: BorderSide(width: 1, color: AppColor.primaryColor));
 
-  static const focusedBorder = UnderlineInputBorder(
-      borderRadius: BorderRadius.all(Radius.circular(10)),
+
+  static const focusedBorder = OutlineInputBorder(
+      borderRadius: BorderRadius.all(Radius.circular(5)),
       borderSide: BorderSide(width: 2, color: AppColor.secondaryColor));
-
-  static const errorBorder = UnderlineInputBorder(
-      borderRadius: BorderRadius.all(Radius.circular(10)),
-      borderSide: BorderSide(width: 1, color: Colors.red));
 
   void validateForm() {
     setState(() {
@@ -95,17 +89,15 @@ class _LoginFormState extends State<LoginForm> {
               focusNode: emailFocusNode,
               decoration: const InputDecoration(
                 prefixIcon: Icon(Icons.email_outlined),
-                hintText: "អុីម៉ែល",
-                enabledBorder: enabledBorder,
+                labelText: "អុីម៉ែល",
+                 labelStyle: TextStyle(color: AppColor.black70),
                 focusedBorder: focusedBorder,
-                errorBorder: errorBorder,
                 border: InputBorder.none,
-                
               ),
               onFieldSubmitted: (value) {
-                  Utils.fieldFocusChangeLogin(
-                      context, emailFocusNode, passwordFocusNode);
-                },
+                Utils.fieldFocusChangeLogin(
+                    context, emailFocusNode, passwordFocusNode);
+              },
             ),
           ),
           if (emailError != null)
@@ -135,10 +127,9 @@ class _LoginFormState extends State<LoginForm> {
                   decoration: InputDecoration(
                     errorMaxLines: 3,
                     prefixIcon: const Icon(Icons.lock_outline),
-                    hintText: "លេខសំងាត់",
-                    enabledBorder: enabledBorder,
+                    labelText: "លេខសំងាត់",
+                    labelStyle: TextStyle(color: AppColor.black70),
                     focusedBorder: focusedBorder,
-                    errorBorder: errorBorder,
                     border: InputBorder.none,
                     suffixIcon: InkWell(
                       onTap: () {

@@ -21,9 +21,9 @@ class RegisterPage extends StatelessWidget {
               SizedBox(height: MediaQuery.of(context).padding.top),
               Image(
                 image: AssetImage("assets/logos/logo.png"),
-                height: size.height * 0.26,
+                height: size.height * 0.2,
               ),
-              SizedBox(height: 50),
+              SizedBox(height: 35),
               const RegisterForm(),
               SizedBox(height: 10),
               Padding(
