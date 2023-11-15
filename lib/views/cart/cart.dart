@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-
-import '../../constants/colors.dart';
 import '../../constants/size.dart';
 import 'widget/CartCourse.dart';
 

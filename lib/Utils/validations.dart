@@ -1,3 +1,17 @@
+String? validatelastName(String? value) {
+  if (value == null || value.isEmpty) {
+    return "lastName required";
+  } 
+  return null;
+}
+
+String? validatefirstName(String? value) {
+  if (value == null || value.isEmpty) {
+    return "firstName required";
+  }  
+  return null;
+}
+
 String? validateEmail(String? value) {
   if (value == null || value.isEmpty) {
     return "email required";
