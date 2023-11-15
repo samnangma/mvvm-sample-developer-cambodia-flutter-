@@ -8,6 +8,7 @@ import 'views/forum/forum_answer/forum_answer.dart';
 import 'views/forum/forum_one/detail.dart';
 import 'views/forum/forum_specific/specific.dart';
 import 'views/home/home.dart';
+import 'views/mentor/mentor.dart';
 
 
 void main() {
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
           fontFamily: "NotoSerifKhmer",
           useMaterial3: true,
         ),
-        home:HomeScreen (),
+        home:Mentor(),
       ),
     );
   }

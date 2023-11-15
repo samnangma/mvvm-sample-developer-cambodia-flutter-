@@ -32,7 +32,7 @@ class Lesson extends StatelessWidget {
               height:MediaQuery.of(context).size.height*.65,
               child: ListView.builder(
                 itemCount: 10,
-                itemBuilder: (context, index) => Padding(padding: EdgeInsets.only(bottom: 20),
+                itemBuilder: (context, index) => Padding(padding: EdgeInsets.only(bottom: 10),
                 child: MentorCourse(),),),
             )
           ],

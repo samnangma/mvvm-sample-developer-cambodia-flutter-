@@ -8,7 +8,6 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../constants/fonts.dart';
 import '../cart/cart.dart';
-import '../notification/notification.dart';
 import '../search/search.dart';
 import 'widgets/other_course.dart';
 
@@ -81,7 +80,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         actions: [
           IconButton(onPressed: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context) => Noftification(),));
+            // Navigator.push(context, MaterialPageRoute(builder: (context) => Noftification(),));
           }, icon: Icon(
             Icons.notifications_none_sharp,
           ),),
@@ -575,7 +574,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ],
                   ),
-                  const SizedBox(height: 10,),
+                  const SizedBox(height: 20,),
                   OtherCourse(),
                   const SizedBox(height: 10,),
                   OtherCourse(),

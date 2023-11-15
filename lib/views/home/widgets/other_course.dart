@@ -9,32 +9,27 @@ class OtherCourse extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.all(8),
       width: MediaQuery.sizeOf(context).width,
-      height: MediaQuery.sizeOf(context).height * .18,
+      height: MediaQuery.sizeOf(context).height * .135,
       decoration: BoxDecoration(
-        color: AppColor.primaryWhite,
-        borderRadius: BorderRadius.only(
-            bottomRight: Radius.circular(10), bottomLeft: Radius.circular(10)),
-        boxShadow: [
-          BoxShadow(
-            color: Color(0X000000).withOpacity(.25),
-            offset: Offset(0.0, 1.0), //(x,y)
-            blurRadius: 1.0,
-          ),
-        ],
-      ),
+        color: AppColor.whiteColor,
+        borderRadius: BorderRadius.circular(10),
+      border: Border.all(
+        color: AppColor.gray50,
+        width: 2
+      )),
       child: GestureDetector(
         child: Row(
           children: [
             SizedBox(
               width: 130,
-              height: double.maxFinite,
+              height: double.maxFinite*.9,
               child: ClipRRect(
-                borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(10),
-                    topLeft: Radius.circular(10)),
+                borderRadius: BorderRadius.all(
+                Radius.circular(10)),
                 child: Image.asset(
-                  'assets/images/14.png',
+                  'assets/images/13.png',
                   fit: BoxFit.cover,
                 ),
               ),
@@ -48,44 +43,57 @@ class OtherCourse extends StatelessWidget {
                       children: [
                         Text(
                           'រៀន Blockchain គម្រិតដំបូង',
-                          style: AppSize.SubTitle,
+                          style: AppSize.SubTitle.copyWith(color: AppColor.secondaryDarkColor)
                         ),
                         Expanded(
                           child: Row(
                             children: [
-                              Icon(Icons.person,color: AppColor.black50,),
+                              Icon(Icons.star,color: AppColor.primaryDarkColor,),
                               SizedBox(
                                 width: 5,
                               ),
-                              Text(
-                                'សំ ណាង',
-                                style: AppSize.SubTitleB50 ,
-                              )
+                              RichText(
+                                  text: TextSpan(
+                                text:   '5.0',
+                                style: AppSize.TextDes,
+                                children: [
+                                  TextSpan(
+                                    text: ' (500)'
+                                  )
+                                ]
+                              ))
                             ],
                           ),
                         ),
                         Expanded(
                           child: Row(
                             children: [
-                              Text(
-                                  '៤០០០០០ ៛',
-                                  style: AppSize.SubTitle
-                              ),
-                              SizedBox(
-                                width: 5,
-                              ),
-                              Container(
-                                padding: EdgeInsets.symmetric(
-                                    vertical: 6, horizontal: 10),
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(28),
-                                    color:
-                                    AppColor.primaryDarkColor.withOpacity(.2)),
-                                child: Text(
-                                  'លក់ដាច់បំផុត',
-                                  style:AppSize.SubTitle.copyWith(color: AppColor.primaryDarkColor) ,
-                                ),
-                              ),
+                             Row(
+                               children: [
+                                 Icon(Icons.file_copy,color: AppColor.secondaryDarkColor,),
+                                 RichText(
+                                     text: TextSpan(
+                                         text:   '16',
+                                         style: AppSize.TextDes.copyWith(color:AppColor.secondaryDarkColor),
+                                         children: [
+                                           TextSpan(
+                                               text: ' Lessons'
+                                           )
+                                         ]
+                                     ))
+                               ],
+                             ),
+                              Spacer(),
+                              RichText(
+                                  text: TextSpan(
+                                      text:   '៤០',
+                                      style: AppSize.TextDes.copyWith(color:AppColor.secondaryDarkColor),
+                                      children: [
+                                        TextSpan(
+                                            text: 'ម៉ឺនរៀល'
+                                        )
+                                      ]
+                                  )),
                             ],
                           ),
                         ),
