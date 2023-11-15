@@ -62,17 +62,17 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             const SizedBox(width: 10,),
-            const Column(
+            Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   "សួរស្តី, Samnang",
-                  style: TextStyle(fontWeight: SemiBold),
+                  style: AppSize.TitleCourse,
                 ),
                 SizedBox(height: 10),
                 Text(
                   "តោះចាប់ផ្តើមរៀនទាំងអស់គ្នា!",
-                  style: TextStyle(fontSize: 17, fontWeight: Light),
+                  style: AppSize.SubTitle,
                 )
               ],
             )

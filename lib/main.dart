@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
           fontFamily: "NotoSerifKhmer",
           useMaterial3: true,
         ),
-        home:Mentor(),
+        home:HomeScreen(),
       ),
     );
   }
