@@ -33,7 +33,7 @@ class PopularCourse extends StatelessWidget {
                   color: AppColor.primaryDarkColor,
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8,vertical: 5),
+                  padding: const EdgeInsets.symmetric(horizontal: 9,vertical: 3),
                   child: Text('លក់ដាច់ជាងគេ',style: AppSize.TextDes.copyWith(color: AppColor.primaryWhite),),
                 ),
               ),

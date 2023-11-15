@@ -12,7 +12,7 @@ class Add_Cart extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.sizeOf(context).width,
-      height: MediaQuery.sizeOf(context).height * .18,
+      height: MediaQuery.sizeOf(context).height * .15,
       decoration: BoxDecoration(
         color: AppColor.primaryWhite,
         borderRadius: BorderRadius.only(
@@ -36,7 +36,7 @@ class Add_Cart extends StatelessWidget {
                     bottomLeft: Radius.circular(10),
                     topLeft: Radius.circular(10)),
                 child: Image.asset(
-                  'assets/images/14.png',
+                  'assets/images/13.png',
                   fit: BoxFit.cover,
                 ),
               ),
@@ -50,7 +50,7 @@ class Add_Cart extends StatelessWidget {
                   children: [
                     Text(
                       'រៀន Blockchain គម្រិតដំបូង',
-                      style: AppSize.SubTitle,
+                      style: AppSize.SubTitleB50 ,
                     ),
                     Expanded(
                       child: Row(
@@ -87,24 +87,11 @@ class Add_Cart extends StatelessWidget {
                       child: Row(
                         children: [
                           Text(
-                            '៤០០០០០ ៛',
+                            '៤០ម៉ឺនរៀល',
                             style: AppSize.SubTitle
                           ),
-                          SizedBox(
-                            width: 5,
-                          ),
-                          Container(
-                            padding: EdgeInsets.symmetric(
-                                vertical: 6, horizontal: 10),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(28),
-                                color:
-                                    AppColor.primaryDarkColor.withOpacity(.2)),
-                            child: Text(
-                              'លក់ដាច់បំផុត',
-                              style:AppSize.SubTitle.copyWith(color: AppColor.primaryDarkColor) ,
-                            ),
-                          ),
+                          Spacer(),
+                          IconButton(onPressed: (){}, icon: Icon(Icons.delete,color: Colors.red,size: 25,))
                         ],
                       ),
                     ),

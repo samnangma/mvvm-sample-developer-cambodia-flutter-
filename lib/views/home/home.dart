@@ -66,12 +66,14 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 Text(
                   "សួរស្តី, Samnang",
-                  style: AppSize.TitleCourse,
+                  style: AppSize.TitleCourse.copyWith(fontSize: 20),
                 ),
                 SizedBox(height: 10),
                 Text(
                   "តោះចាប់ផ្តើមរៀនទាំងអស់គ្នា!",
-                  style: AppSize.SubTitle,
+                  style: AppSize.SubTitle.copyWith(
+                    fontWeight: FontWeight.w500
+                  ),
                 )
               ],
             )
@@ -377,7 +379,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                               color: Colors.red,
                                             ),
                                             child: Padding(
-                                              padding: const EdgeInsets.symmetric(horizontal: 8,vertical: 5),
+                                              padding: const EdgeInsets.symmetric(horizontal: 9,vertical: 3),
                                               child: Text('ឥតគិតថ្លៃ',style: AppSize.TextDes.copyWith(color: AppColor.primaryWhite),),
                                             ),
                                           ),
@@ -486,7 +488,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                               color: Colors.red,
                                             ),
                                             child: Padding(
-                                              padding: const EdgeInsets.symmetric(horizontal: 8,vertical: 5),
+                                              padding: const EdgeInsets.symmetric(horizontal: 9,vertical: 3),
                                               child: Text('បញ្ចុះតម្លៃ ៥០%',style: AppSize.TextDes.copyWith(color: AppColor.primaryWhite),),
                                             ),
                                           ),

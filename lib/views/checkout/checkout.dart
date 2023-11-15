@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import '../../constants/colors.dart';
+import '../../constants/size.dart';
 import 'widget/checkout.dart';
 
 class Checkout extends StatelessWidget {
@@ -12,14 +13,10 @@ class Checkout extends StatelessWidget {
       appBar: AppBar(
         leading:
         GestureDetector(
-          onTap: (){},
-          child: Container(
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(50),
-                border: Border.all(color: AppColor.gray50)
-            ),
+          onTap: (){
+            Navigator.pop(context);
+          },
             child: Icon(Icons.arrow_back,size: 41,),
-          ),
         ),
         title: const Text("Checkout",style: TextStyle(
             fontWeight: FontWeight.bold,
@@ -111,6 +108,43 @@ class Checkout extends StatelessWidget {
             child: Divider(thickness: 2),
           )
         ],
+      ),
+      bottomSheet:
+      Padding(
+        padding: const EdgeInsets.only(bottom: 2),
+        child: Container(
+          width: MediaQuery.of(context).size.width,
+          decoration: BoxDecoration(
+            border: Border.all(color: Colors.grey),
+            borderRadius: BorderRadius.circular(15),
+          ),
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 40,vertical: 27),
+            child: Row(
+              children: [
+                RichText(text: TextSpan(
+                    style: AppSize.TextDes,
+                    text: 'សរុប',
+                    children: [
+                      TextSpan(text: '\n២ លានរៀល',
+                          style: AppSize.TextDesBlack)
+                    ]
+                )),
+                Spacer(),
+                Container(
+                  decoration: BoxDecoration(
+                      color: AppColor.primaryDarkColor,
+                      borderRadius: BorderRadius.circular(5)
+                  ),
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 61,vertical: 10),
+                    child: Text('ទិញឥឡូវ',style: AppSize.SubTitle.copyWith(color: AppColor.primaryWhite),),
+                  ),
+                )
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }
