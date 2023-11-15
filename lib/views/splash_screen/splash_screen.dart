@@ -1,7 +1,6 @@
 import 'package:developer_cambodia/views/splash_screen/onboardingpage/onboarding_page.dart';
 import 'package:flutter/material.dart';
 
-
 class SplashScreen extends StatefulWidget {
   @override
   _SplashScreenState createState() => _SplashScreenState();

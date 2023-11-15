@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../constants/colors.dart';
@@ -31,17 +30,15 @@ class _ForgetPasswordFormState extends State<ForgetPasswordForm> {
     emailController.dispose();
   }
 
-  static const enabledBorder = UnderlineInputBorder(
-      borderRadius: BorderRadius.all(Radius.circular(10)),
-      borderSide: BorderSide(width: 1, color: AppColor.primaryColor));
+  // static const enabledBorder = UnderlineInputBorder(
+  //     borderRadius: BorderRadius.all(Radius.circular(10)),
+  //     borderSide: BorderSide(width: 1, color: AppColor.primaryColor));
 
-  static const focusedBorder = UnderlineInputBorder(
-      borderRadius: BorderRadius.all(Radius.circular(10)),
+  static const focusedBorder = OutlineInputBorder(
+      borderRadius: BorderRadius.all(Radius.circular(5)),
       borderSide: BorderSide(width: 2, color: AppColor.secondaryColor));
 
-  static const errorBorder = UnderlineInputBorder(
-      borderRadius: BorderRadius.all(Radius.circular(10)),
-      borderSide: BorderSide(width: 1, color: Colors.red));
+
 
   void validateForm() {
     setState(() {
@@ -71,7 +68,7 @@ class _ForgetPasswordFormState extends State<ForgetPasswordForm> {
           const Text(
             "បញ្ចូលអុីម៉ែលដែលភ្ជាប់ជាមួយគណនីរបស់អ្នកហើយយើងនឹង\nផ្ញើ Link សម្រាប់កំណត់ពាក្យសម្ងាត់ឡើងវិញ",
             style: TextStyle(
-              color: Color(0xFFBFBFBF),
+              color: AppColor.black50,
               fontSize: 14,
               fontWeight: FontWeight.w500,
               height: 1.2,
@@ -91,11 +88,10 @@ class _ForgetPasswordFormState extends State<ForgetPasswordForm> {
             child: TextFormField(
               controller: emailController,
               decoration: const InputDecoration(
-                enabledBorder: enabledBorder,
                 focusedBorder: focusedBorder,
-                errorBorder: errorBorder,
                 prefixIcon: Icon(Icons.email_outlined),
-                hintText: "អុីម៉ែល",
+                labelText: "អុីម៉ែល",
+                labelStyle: TextStyle(color: AppColor.black70),
                 border: InputBorder.none,
               ),
             ),
@@ -135,7 +131,7 @@ class _ForgetPasswordFormState extends State<ForgetPasswordForm> {
                 ),
               ),
               child: const Text(
-                "Submit",
+                "បន្ត",
                 style: TextStyle(
                   color: AppColor.secondaryDarkColor,
                   fontWeight: FontWeight.bold,

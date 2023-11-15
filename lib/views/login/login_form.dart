@@ -3,6 +3,7 @@ import 'package:developer_cambodia/viewmodel/user_vew_model.dart';
 import 'package:developer_cambodia/views/forget_password/forget_pasword.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '../../Utils/utils.dart';
 import '../../constants/colors.dart';
 
 class LoginForm extends StatefulWidget {
@@ -13,11 +14,16 @@ class LoginForm extends StatefulWidget {
 }
 
 class _LoginFormState extends State<LoginForm> {
+  ValueNotifier<bool> _obscurePassword = ValueNotifier<bool>(true);
+
   late TextEditingController emailController;
   late TextEditingController passwordController;
   final _formKey = GlobalKey<FormState>(); // Update this line
   String? emailError;
   String? passwordError;
+
+  FocusNode emailFocusNode = FocusNode();
+  FocusNode passwordFocusNode = FocusNode();
 
   @override
   void initState() {
@@ -31,19 +37,16 @@ class _LoginFormState extends State<LoginForm> {
     super.dispose();
     emailController.dispose();
     passwordController.dispose();
+    emailFocusNode.dispose();
+    passwordFocusNode.dispose();
+    _obscurePassword.dispose();
   }
 
-  static const enabledBorder = UnderlineInputBorder(
-      borderRadius: BorderRadius.all(Radius.circular(10)),
-      borderSide: BorderSide(width: 1, color: AppColor.primaryColor));
 
-  static const focusedBorder = UnderlineInputBorder(
-      borderRadius: BorderRadius.all(Radius.circular(10)),
+
+  static const focusedBorder = OutlineInputBorder(
+      borderRadius: BorderRadius.all(Radius.circular(5)),
       borderSide: BorderSide(width: 2, color: AppColor.secondaryColor));
-
-  static const errorBorder = UnderlineInputBorder(
-      borderRadius: BorderRadius.all(Radius.circular(10)),
-      borderSide: BorderSide(width: 1, color: Colors.red));
 
   void validateForm() {
     setState(() {
@@ -80,17 +83,21 @@ class _LoginFormState extends State<LoginForm> {
                   borderRadius: BorderRadius.circular(5)),
             ),
             child: TextFormField(
-              textInputAction: TextInputAction.continueAction,
+              // textInputAction: TextInputAction.continueAction,
               controller: emailController,
-              // validator: validateEmail,
+              keyboardType: TextInputType.emailAddress,
+              focusNode: emailFocusNode,
               decoration: const InputDecoration(
                 prefixIcon: Icon(Icons.email_outlined),
-                hintText: "អុីម៉ែល",
-                enabledBorder: enabledBorder,
+                labelText: "អុីម៉ែល",
+                 labelStyle: TextStyle(color: AppColor.black70),
                 focusedBorder: focusedBorder,
-                errorBorder: errorBorder,
                 border: InputBorder.none,
               ),
+              onFieldSubmitted: (value) {
+                Utils.fieldFocusChangeLogin(
+                    context, emailFocusNode, passwordFocusNode);
+              },
             ),
           ),
           if (emailError != null)
@@ -107,26 +114,36 @@ class _LoginFormState extends State<LoginForm> {
             decoration: ShapeDecoration(
               color: AppColor.gray50,
               shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(5)),
-            ),
-            child: TextFormField(
-              controller: passwordController,
-              // validator: validatePassword,
-              // obscureText: true,
-              decoration: InputDecoration(
-                errorStyle: const TextStyle(fontSize: 10),
-                errorMaxLines: 3,
-                prefixIcon: const Icon(Icons.lock_outline),
-                hintText: "លេខសំងាត់",
-                enabledBorder: enabledBorder,
-                focusedBorder: focusedBorder,
-                errorBorder: errorBorder,
-                border: InputBorder.none,
-                suffixIcon: IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.remove_red_eye_sharp),
-                ),
+                borderRadius: BorderRadius.circular(5),
               ),
+            ),
+            child: ValueListenableBuilder<bool>(
+              valueListenable: _obscurePassword,
+              builder: (context, value, child) {
+                return TextFormField(
+                  controller: passwordController,
+                  obscureText: _obscurePassword.value,
+                  focusNode: passwordFocusNode,
+                  decoration: InputDecoration(
+                    errorMaxLines: 3,
+                    prefixIcon: const Icon(Icons.lock_outline),
+                    labelText: "លេខសំងាត់",
+                    labelStyle: TextStyle(color: AppColor.black70),
+                    focusedBorder: focusedBorder,
+                    border: InputBorder.none,
+                    suffixIcon: InkWell(
+                      onTap: () {
+                        _obscurePassword.value = !_obscurePassword.value;
+                      },
+                      child: Icon(
+                        _obscurePassword.value
+                            ? Icons.visibility_off_outlined
+                            : Icons.visibility,
+                      ),
+                    ),
+                  ),
+                );
+              },
             ),
           ),
           if (passwordError != null)

@@ -7,6 +7,9 @@ import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../constants/fonts.dart';
+import '../cart/cart.dart';
+import '../notification/notification.dart';
+import '../search/search.dart';
 import 'widgets/other_course.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -75,19 +78,17 @@ class _HomeScreenState extends State<HomeScreen> {
             )
           ],
         ),
-        actions: const [
-          Icon(
+        actions: [
+          IconButton(onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context) => Noftification(),));
+          }, icon: Icon(
             Icons.notifications_none_sharp,
-          ),
-          SizedBox(
-            width: 10,
-          ),
-          Icon(
+          ),),
+          IconButton(onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context) => Cart(),));
+          }, icon: Icon(
             Icons.shopping_cart_outlined,
-          ),
-          SizedBox(
-            width: 20,
-          )
+          ),),
         ],
       ),
 
@@ -110,31 +111,32 @@ class _HomeScreenState extends State<HomeScreen> {
                       horizontal: 15, vertical: 10),
                   child: Row(
                     children: [
-                      Container(
-                        height: 45,
-                        width: MediaQuery.of(context).size.width * 0.7,
-                        decoration: BoxDecoration(
-                          color: AppColor.primaryWhite.withOpacity(0.9),
-                          borderRadius: BorderRadius.circular(14),
-                        ),
-                        child: const Row(
-                          children: [
-                            SizedBox(
-                              width: 19,
-                            ),
-                            Icon(
-                              Icons.search_outlined,
-                              color: AppColor.black50,
-                            ),
-                            Expanded(
-                              child: TextField(
-                                decoration: InputDecoration(
-                                  hintText: 'Search',
-                                  border: InputBorder.none,
-                                ),
+                      GestureDetector(
+                        onTap:(){
+                          Navigator.push(context, MaterialPageRoute(builder: (context) =>
+                            Search(),));
+                        } ,
+                        child: Container(
+                          height: 45,
+                          width: MediaQuery.of(context).size.width * 0.7,
+                          decoration: BoxDecoration(
+                            color: AppColor.primaryWhite.withOpacity(0.9),
+                            borderRadius: BorderRadius.circular(14),
+                          ),
+                          child: const Row(
+                            children: [
+                              SizedBox(
+                                width: 19,
                               ),
-                            ),
-                          ],
+                              Icon(
+                                Icons.search_outlined,
+                                color: AppColor.black50,
+                              ),
+                              Expanded(
+                                child: Text('ស្វែងរក'),
+                                ),
+                            ],
+                          ),
                         ),
                       ),
                       SizedBox(

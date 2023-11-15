@@ -1,9 +1,8 @@
 import 'package:developer_cambodia/Utils/dialogs.dart';
-import 'package:developer_cambodia/views/sign_up/complete_information/complete_info.dart';
 import 'package:flutter/material.dart';
-
 import '../Utils/validations.dart';
 import '../views/home/home.dart';
+import '../views/opt_verfiy/opt_verfiy.dart';
 
 class UserViewModel with ChangeNotifier {
   GlobalKey<FormState>? _loginFormKey;
@@ -37,8 +36,8 @@ class UserViewModel with ChangeNotifier {
           context, MaterialPageRoute(builder: (context) => HomeScreen()));
     }
   }
-  
-  // the error code 
+
+  // the error code
 
   // void createUserUI(BuildContext context,
   //     {required String email,
@@ -46,7 +45,7 @@ class UserViewModel with ChangeNotifier {
   //     required String confirmPassword}) async {
   //   FocusManager.instance.primaryFocus?.unfocus();
   //   if (registerFormKey?.currentState?.validate() ?? false) {
-      
+
   //     if (confirmPassword.toString().trim() != password.toString().trim()) {
   //       showSnackBar(context, "password don't match", 2000);
 
@@ -58,23 +57,25 @@ class UserViewModel with ChangeNotifier {
   // }
 
   void createUserUI(BuildContext context,
-    {required String email,
-    required String password,
-    required String confirmPassword}) async {
-  FocusManager.instance.primaryFocus?.unfocus();
-  
-  String? confirmPasswordError = validateConfirmPassword(password, confirmPassword);
-  
-  if (confirmPasswordError != null) {
-    showSnackBar(context, confirmPasswordError, 2000);
-  } else {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => CompleteInfo()),
-    );
-  }
-}
+      {required String lastName,
+      required String firstName,
+      required String email,
+      required String password,
+      required String confirmPassword}) async {
+    FocusManager.instance.primaryFocus?.unfocus();
 
+    String? confirmPasswordError =
+        validateConfirmPassword(password, confirmPassword);
+
+    if (confirmPasswordError != null) {
+      showSnackBar(context, confirmPasswordError, 2000);
+    } else {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => Verificatoin()),
+      );
+    }
+  }
 
   void resetPasswordUserUI(
     BuildContext context, {
