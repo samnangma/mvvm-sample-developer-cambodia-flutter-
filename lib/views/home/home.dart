@@ -44,7 +44,6 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       appBar: AppBar(
         toolbarHeight: MediaQuery.of(context).size.height * 0.1,
         backgroundColor: AppColor.primaryColor,

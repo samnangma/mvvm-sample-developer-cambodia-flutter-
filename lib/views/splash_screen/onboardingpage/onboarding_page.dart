@@ -24,7 +24,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         // Navigating to another page when at the end
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => WelcomePage()),
+          MaterialPageRoute(builder: (context) => const WelcomePage()),
         );
       }
     });

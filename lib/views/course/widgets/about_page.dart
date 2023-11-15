@@ -158,7 +158,7 @@ class AboutPage extends StatelessWidget {
 
 
       bottomNavigationBar: Container(
-        height: 100,
+        height: 120,
         width: double.infinity,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
@@ -174,22 +174,39 @@ class AboutPage extends StatelessWidget {
                   Text("\$ 180.0")
                 ],
               ),
-              Align(
-                alignment: Alignment.centerRight,
-                child: GestureDetector(
-                  onTap: (){},
-                  child: Container(
-                     decoration: BoxDecoration(
-                       borderRadius: BorderRadius.circular(10),
-                       color: AppColor.primaryDarkColor,
-                     ),
-                     child: Padding(
-                         padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 10),
-                       child: Text("Enroll Now", style: TextStyle(fontSize: 16, color: Colors.white),),
-                     ),
-                   ),
-                ),
-              )
+              SizedBox(height: 10,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  GestureDetector(
+                    onTap: (){},
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                          border: Border.all(color: AppColor.primaryDarkColor)
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 10),
+                        child: Text("Add to cart", style: TextStyle(fontSize: 16, color: AppColor.primaryDarkColor),),
+                      ),
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: (){},
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: AppColor.primaryDarkColor,
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 10),
+                        child: Text("Enroll Now", style: TextStyle(fontSize: 16, color: Colors.white),),
+                      ),
+                    ),
+                  )
+                ],
+              ),
+
             ],
           ),
         ),
