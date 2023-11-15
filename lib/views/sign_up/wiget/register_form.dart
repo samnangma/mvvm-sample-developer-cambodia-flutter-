@@ -119,11 +119,9 @@ class _RegisterFormState extends State<RegisterForm> {
                   children: [
                     Container(
                       height: 60,
-                      decoration: ShapeDecoration(
+                      decoration: BoxDecoration(
                         color: AppColor.gray50,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(5),
-                        ),
+                        borderRadius: BorderRadius.circular(5),
                       ),
                       child: TextFormField(
                         controller: lastNameController,
@@ -131,13 +129,16 @@ class _RegisterFormState extends State<RegisterForm> {
                         focusNode: lastNameFocusNode,
                         decoration: InputDecoration(
                           focusedBorder: focusedBorder,
-                          labelText: lastNameFocusNode.hasFocus ||
-                                  lastNameController.text.isNotEmpty
-                              ? null
-                              : "នាមត្រកូល",
+                          labelText:
+                              lastNameFocusNode.hasFocus ? null : "នាមត្រកូល",
+                          labelStyle: TextStyle(color: AppColor.black70),
                           prefixIcon: Icon(Icons.people_outline),
                           border: InputBorder.none,
                         ),
+                        onFieldSubmitted: (value) {
+                          FocusScope.of(context)
+                              .requestFocus(firstNameFocusNode);
+                        },
                       ),
                     ),
                     if (lastNameError != null)
@@ -159,7 +160,7 @@ class _RegisterFormState extends State<RegisterForm> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
-                      height: 50,
+                      height: 60,
                       decoration: ShapeDecoration(
                         color: AppColor.gray50,
                         shape: RoundedRectangleBorder(
@@ -174,8 +175,12 @@ class _RegisterFormState extends State<RegisterForm> {
                           focusedBorder: focusedBorder,
                           prefixIcon: const Icon(Icons.people_outline),
                           labelText: firstNameFocusNode.hasFocus ? null : "នាម",
+                          labelStyle: TextStyle(color: AppColor.black70),
                           border: InputBorder.none,
                         ),
+                        onFieldSubmitted: (value) {
+                          FocusScope.of(context).requestFocus(emailFocusNode);
+                        },
                       ),
                     ),
                     if (firstNameError != null)
@@ -193,7 +198,7 @@ class _RegisterFormState extends State<RegisterForm> {
           ),
           const SizedBox(height: 15),
           Container(
-            height: 50,
+            height: 60,
             decoration: ShapeDecoration(
               color: AppColor.gray50,
               shape: RoundedRectangleBorder(
@@ -206,6 +211,7 @@ class _RegisterFormState extends State<RegisterForm> {
                 focusedBorder: focusedBorder,
                 prefixIcon: Icon(Icons.email_outlined),
                 labelText: emailFocusNode.hasFocus ? null : "អុីម៉ែល",
+                labelStyle: TextStyle(color: AppColor.black70),
                 border: InputBorder.none,
               ),
               onFieldSubmitted: (value) {
@@ -223,7 +229,7 @@ class _RegisterFormState extends State<RegisterForm> {
             ),
           const SizedBox(height: 15),
           Container(
-            height: 50,
+            height: 60,
             decoration: ShapeDecoration(
               color: AppColor.gray50,
               shape: RoundedRectangleBorder(
@@ -242,6 +248,7 @@ class _RegisterFormState extends State<RegisterForm> {
                     prefixIcon: const Icon(Icons.lock_outline),
                     labelText:
                         passwordFocusNode.hasFocus ? null : "លេខកូដសម្ងាត់",
+                    labelStyle: TextStyle(color: AppColor.black70),
                     border: InputBorder.none,
                     suffixIcon: InkWell(
                       onTap: () {
@@ -272,7 +279,7 @@ class _RegisterFormState extends State<RegisterForm> {
             ),
           const SizedBox(height: 15),
           Container(
-            height: 50,
+            height: 60,
             decoration: ShapeDecoration(
               color: AppColor.gray50,
               shape: RoundedRectangleBorder(
@@ -291,6 +298,7 @@ class _RegisterFormState extends State<RegisterForm> {
                     labelText: confirmPasswordFocusNode.hasFocus
                         ? null
                         : "បញ្ជាក់លេខកូដសម្ងាត់",
+                    labelStyle: TextStyle(color: AppColor.black70),
                     border: InputBorder.none,
                     suffixIcon: InkWell(
                       onTap: () {

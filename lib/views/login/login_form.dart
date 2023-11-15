@@ -43,10 +43,10 @@ class _LoginFormState extends State<LoginForm> {
   }
 
 
-
-  static const focusedBorder = OutlineInputBorder(
-      borderRadius: BorderRadius.all(Radius.circular(5)),
-      borderSide: BorderSide(width: 2, color: AppColor.secondaryColor));
+ static const OutlineInputBorder focusedBorder = OutlineInputBorder(
+    borderRadius: BorderRadius.all(Radius.circular(5)),
+    borderSide: BorderSide(width: 2, color: AppColor.secondaryColor),
+  );
 
   void validateForm() {
     setState(() {
@@ -76,22 +76,20 @@ class _LoginFormState extends State<LoginForm> {
             height: 15,
           ),
           Container(
-            height: 50,
+            height: 60,
             decoration: ShapeDecoration(
               color: AppColor.gray50,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(5)),
             ),
             child: TextFormField(
-              // textInputAction: TextInputAction.continueAction,
               controller: emailController,
-              keyboardType: TextInputType.emailAddress,
               focusNode: emailFocusNode,
-              decoration: const InputDecoration(
-                prefixIcon: Icon(Icons.email_outlined),
-                labelText: "អុីម៉ែល",
-                 labelStyle: TextStyle(color: AppColor.black70),
+              decoration: InputDecoration(
                 focusedBorder: focusedBorder,
+                prefixIcon: Icon(Icons.email_outlined),
+                labelText: emailFocusNode.hasFocus ? null : "អុីម៉ែល",
+                 labelStyle: TextStyle(color: AppColor.black70),
                 border: InputBorder.none,
               ),
               onFieldSubmitted: (value) {
@@ -110,7 +108,7 @@ class _LoginFormState extends State<LoginForm> {
             ),
           const SizedBox(height: 15),
           Container(
-            height: 50,
+            height: 60,
             decoration: ShapeDecoration(
               color: AppColor.gray50,
               shape: RoundedRectangleBorder(
@@ -127,7 +125,8 @@ class _LoginFormState extends State<LoginForm> {
                   decoration: InputDecoration(
                     errorMaxLines: 3,
                     prefixIcon: const Icon(Icons.lock_outline),
-                    labelText: "លេខសំងាត់",
+                     labelText:
+                        passwordFocusNode.hasFocus ? null : "លេខកូដសម្ងាត់",
                     labelStyle: TextStyle(color: AppColor.black70),
                     focusedBorder: focusedBorder,
                     border: InputBorder.none,
