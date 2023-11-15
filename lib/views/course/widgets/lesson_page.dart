@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 
-import '../data/itemData.dart';
+// import '../data/itemData.dart';
 
 class LessonPage extends StatefulWidget {
   const LessonPage({super.key});
@@ -17,8 +17,13 @@ class _LessonPageState extends State<LessonPage> {
   void initState() {
     super.initState();
     // Initialize the expanded state for each item
-    _expandedList = List<bool>.filled(itemData.length, false);
+    _expandedList = List<bool>.filled(item.length, false);
   }
+
+  final item = [
+    "មេរៀនទី 1 - Introduction",
+    "មេរៀនទី 2 - Dart Programming"
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -31,19 +36,20 @@ class _LessonPageState extends State<LessonPage> {
               const Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  "About Course",
+                  "អំពីមេរៀន",
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
               ),
+              const SizedBox(height: 10,),
               Container(
                 width: double.infinity,
-                height: 800,
+                height:700,
                 child: ListView.builder(
-                  itemCount: itemData.length,
+                  itemCount: item.length,
                   itemBuilder: (BuildContext context, int index) {
                     return ExpansionPanelList(
                       animationDuration: const Duration(milliseconds: 400),
-                      elevation: 1,
+                      elevation: 0,
                       expandedHeaderPadding: EdgeInsets.zero,
                       children: [
                         ExpansionPanel(
@@ -67,12 +73,12 @@ class _LessonPageState extends State<LessonPage> {
                                           Expanded(
                                             flex: 2,
                                             child: Container(
-                                              decoration: BoxDecoration(
+                                              decoration: const BoxDecoration(
                                                   color: Colors.blue,
                                                   shape: BoxShape.circle
                                               ),
-                                              child: Padding(
-                                                padding: const EdgeInsets.all(8.0),
+                                              child: const Padding(
+                                                padding: EdgeInsets.all(8.0),
                                                 child: Icon(Icons.play_arrow),
                                               ),
                                             ),
@@ -121,9 +127,9 @@ class _LessonPageState extends State<LessonPage> {
                             return Container(
                               padding: const EdgeInsets.all(10),
                               child: Text(
-                                itemData[index].headerItem,
+                                item[index],
                                 style: TextStyle(
-                                  color: itemData[index].colorsItem,
+                                  color: Colors.grey[700],
                                   fontSize: 18,
                                 ),
                               ),

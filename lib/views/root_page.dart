@@ -1,65 +1,68 @@
+
+import 'package:developer_cambodia/constants/colors.dart';
 import 'package:developer_cambodia/views/home/home.dart';
-import 'package:developer_cambodia/views/my%20course/continue_learning.dart';
+import 'package:developer_cambodia/views/my%20course/my_course.dart';
 import 'package:developer_cambodia/views/profile%20account/profile_account.dart';
 import 'package:flutter/material.dart';
-import 'package:google_nav_bar/google_nav_bar.dart';
 
-class MyRootPage extends StatefulWidget {
-  const MyRootPage({super.key});
+class RootPage extends StatefulWidget {
+  const RootPage({super.key});
 
   @override
-  State<MyRootPage> createState() => _MyRootPageState();
+  State<RootPage> createState() => _RootPageState();
 }
 
-class _MyRootPageState extends State<MyRootPage>{
-  int currentPage = 0;
+class _RootPageState extends State<RootPage> {
+
+  int currentIndex = 0;
 
   List<Widget> pages = const [
     HomeScreen(),
-    ContinueLearning(),
+    MyCourse(),
     HomeScreen(),
-    ProfileAccount(),
+    HomeScreen(),
     ProfileAccount()
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[100],
-      body: pages[currentPage],
-      bottomNavigationBar: bottomNavigationBar(),
+      body: pages[currentIndex],
+      bottomNavigationBar: BottomNavigationBar(
+      type: BottomNavigationBarType.fixed,
+      iconSize:30,
+      selectedItemColor: AppColor.primaryDarkColor,
+      selectedFontSize: 16,
+      unselectedItemColor: Colors.grey,
+      currentIndex: currentIndex,
+      showSelectedLabels: true,
+      showUnselectedLabels: false,
+      onTap: (index) => setState(() {
+        currentIndex = index;
+      }),
+      items: const [
+        BottomNavigationBarItem(
+          icon: Icon(Icons.home),
+          label: 'ទំព័រដើម',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.book_sharp),
+          label: 'រៀន',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.business),
+          label: 'ចំណាត់ថ្នាក់',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.message),
+          label: 'វេទិកា',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.person),
+          label: 'ប្រវត្ថិរូប',
+        ),
+      ],
+    ),
     );
   }
-  Padding bottomNavigationBar() {
-    return Padding(
-      padding:
-      const EdgeInsets.symmetric(horizontal: 15.0, vertical: 15),
-      child: Container(
-        decoration: const BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.all(Radius.circular(40)),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: GNav(
-            color: Colors.grey,
-            activeColor: Colors.white,
-            tabBackgroundColor: Colors.blueAccent.shade200,
-            gap: 8,
-            onTabChange: (index) => setState(() => currentPage = index),
-            selectedIndex: currentPage,
-            padding: const EdgeInsets.all(14),
-            tabs: const [
-              GButton(icon: Icons.home, text: "Home"),
-              GButton(icon: Icons.mail, text: "Enroll"),
-              GButton(icon: Icons.flashlight_on, text: "News"),
-              GButton(icon: Icons.warning, text: "About Us"),
-              GButton(icon: Icons.warning, text: "About Us"),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
 }

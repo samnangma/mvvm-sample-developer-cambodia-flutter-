@@ -1,4 +1,8 @@
-import 'package:developer_cambodia/views/splash_screen/splash_screen.dart';
+
+
+import 'package:developer_cambodia/views/notification/notification.dart';
+import 'package:developer_cambodia/views/notification/notification_page.dart';
+import 'package:developer_cambodia/views/root_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -6,7 +10,7 @@ import 'viewmodel/user_vew_model.dart';
 
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -25,7 +29,7 @@ class MyApp extends StatelessWidget {
           fontFamily: "NotoSerifKhmer",
           useMaterial3: true,
         ),
-        home: SplashScreen(),
+        home: NotificationPage(),
       ),
     );
   }
