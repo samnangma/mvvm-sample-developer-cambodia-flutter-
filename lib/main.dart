@@ -1,3 +1,4 @@
+import 'package:developer_cambodia/views/root_page.dart';
 import 'package:developer_cambodia/views/splash_screen/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
           fontFamily: "NotoSerifKhmer",
           useMaterial3: true,
         ),
-        home: SplashScreen (),
+        home: RootPage (),
       ),
     );
   }
