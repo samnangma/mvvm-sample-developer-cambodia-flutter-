@@ -71,12 +71,12 @@ class _ProfileAccountState extends State<ProfileAccount>{
                                     padding: const EdgeInsets.only(top: 100),
                                     child: Column(
                                       children: [
-                                        Text("Seang D. Sifu", style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),),
-                                        SizedBox(height: 5,),
-                                        Text("seang.sengleap@gmail.com",style: TextStyle(fontSize: 16, color: Colors.grey)),
-                                        SizedBox(height: 5,),
+                                        const Text("Somnang Ma", style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),),
+                                        const SizedBox(height: 5,),
+                                        const Text("seang.sengleap@gmail.com",style: TextStyle(fontSize: 16, color: Colors.grey)),
+                                        const SizedBox(height: 5,),
                                         RichText(
-                                          text: TextSpan(
+                                          text: const TextSpan(
                                             style: TextStyle(color: Colors.grey, fontSize: 30),
                                             children: <TextSpan>[
                                               TextSpan(text: 'bio: '),
@@ -114,7 +114,7 @@ class _ProfileAccountState extends State<ProfileAccount>{
                                     height: 50, // The divider's height extent.
                                   ),
                                   Padding(
-                                    padding: EdgeInsets.symmetric(horizontal: 20.0),
+                                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
                                     child: Column(
                                       children: [
                                         Column(
@@ -124,7 +124,7 @@ class _ProfileAccountState extends State<ProfileAccount>{
                                               children: [
                                                 Row(
                                                   children: [
-                                                    Icon(Icons.key),
+                                                    Icon(Icons.people),
                                                     TextButton(
                                                         onPressed: (){
                                                           showDialog(
@@ -153,17 +153,17 @@ class _ProfileAccountState extends State<ProfileAccount>{
                                               onTap: (){
                                                 Navigator.push(context, MaterialPageRoute(builder: (context) => const ChangeLanguage()));
                                               },
-                                              child: Row(
+                                              child: const Row(
                                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                 children: [
                                                   Row(
                                                     children: [
-                                                      Icon(Icons.key),
+                                                      Icon(Icons.abc),
                                                       SizedBox(width: 10,),
                                                       Text("ប្ដូរភាសា", style: TextStyle(fontSize: 16, color: Colors.grey),)
                                                     ],
                                                   ),
-                                                  const Icon(Icons.arrow_forward_ios)
+                                                  Icon(Icons.arrow_forward_ios)
                                                 ],
                                               ),
                                             ),
@@ -176,7 +176,7 @@ class _ProfileAccountState extends State<ProfileAccount>{
                                                 children: [
                                                   Row(
                                                     children: [
-                                                      Icon(Icons.key),
+                                                      const Icon(Icons.book_rounded),
                                                       TextButton(
                                                           onPressed: (){
                                                             Navigator.push(context, MaterialPageRoute(builder: (context) => CourseCertificate()));
@@ -204,7 +204,7 @@ class _ProfileAccountState extends State<ProfileAccount>{
                                               onTap: (){
                                                 // Navigator.push(context, MaterialPageRoute(builder: (context) => CourseCertificate()));
                                               },
-                                              child: Row(
+                                              child: const Row(
                                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                 children: [
                                                   Row(
@@ -218,7 +218,7 @@ class _ProfileAccountState extends State<ProfileAccount>{
                                                 ],
                                               ),
                                             ),
-                                            SizedBox(height: 10,),
+                                            const SizedBox(height: 10,),
                                             Row(
                                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                               children: [

@@ -1,5 +1,6 @@
 
 import 'package:developer_cambodia/constants/colors.dart';
+import 'package:developer_cambodia/views/forum/forum.dart';
 import 'package:developer_cambodia/views/home/home.dart';
 import 'package:developer_cambodia/views/my%20course/my_course.dart';
 import 'package:developer_cambodia/views/profile%20account/profile_account.dart';
@@ -16,11 +17,11 @@ class _RootPageState extends State<RootPage> {
 
   int currentIndex = 0;
 
-  List<Widget> pages = const [
+  List<Widget> pages = [
     HomeScreen(),
     MyCourse(),
     HomeScreen(),
-    HomeScreen(),
+    Forum(),
     ProfileAccount()
   ];
 
